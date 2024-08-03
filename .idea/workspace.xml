@@ -5,57 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edfbfab0-4014-4998-86ab-4b698b191d29" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UniSeller/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UniSeller/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UniSeller/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UniSeller/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UniSeller/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UniSeller/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UniSeller/templates/Components/Navbar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UniSeller/templates/Components/error.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UniSeller/templates/Components/googlelikeicon.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UniSeller/templates/Components/logout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UniSeller/templates/Components/services.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/Main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UniSeller/templates/SellerLogin.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UniSeller/templates/confirmationpage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UniSeller/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UniSeller/templates/sellerSignup.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UniSeller/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UniSeller/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UniSeller/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/css/googleicon.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/css/maindashboard.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/css/sellerlogin.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/googlelogos/2nd.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/googlelogos/gggg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/googlelogos/musical.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/googlelogos/paint.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/googlelogos/play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/googlelogos/smily.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/googlelogos/vlipborad.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/googlelogos/writing.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/images/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/images/app development.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/images/google.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/images/graphic desiging.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/images/image1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/images/image2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/images/logo-Meta.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/images/netflix.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/images/paynoeer.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/images/paypal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/images/pexels-tdcat-54284.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/images/web.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/unisellers/js/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/unilancers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/unilancers/asgi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/unilancers/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/unilancers/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/unilancers/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Components/Navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Components/Navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Components/logout.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Components/logout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/Main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSeller/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSeller/templates/sellerSignup.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/sellerSignup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSeller/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/unisellers/css/maindashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/unisellers/css/maindashboard.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,22 +31,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "django.template.preview.state": "SHOW_EDITOR",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/xampp/htdocs/Project Unilancers/unilancers",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/Project Unilancers/unilancers&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="unilancers" type="Python.DjangoServer" factoryName="Django server">
       <module name="unilancers" />
@@ -137,7 +94,8 @@
       <workItem from="1722615245846" duration="4931000" />
       <workItem from="1722621740959" duration="2428000" />
       <workItem from="1722634243177" duration="1494000" />
-      <workItem from="1722644893615" duration="8672000" />
+      <workItem from="1722644893615" duration="11794000" />
+      <workItem from="1722662994944" duration="2345000" />
     </task>
     <servers />
   </component>

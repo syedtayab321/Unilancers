@@ -48,28 +48,34 @@ def SellerSingUpData(request):
               expert_in = request.POST['field_of_study']
               password = request.POST['password']
               confirm_password = request.POST['confirm_password']
-              status = 'Pending'
-              if password == confirm_password:
-                  SellerSignUpModal.objects.create(
-                      username=username, university_email=university_email,
-                      university_name=university_name, mobile_no=mobile_phone,
-                      registration_number=university_reg_no, expert_in=expert_in,
-                      password=password, status=status,verification_code=verification_code
-                  )
-                  subject = 'Account Verification Code'
-                  message = f"""
-                  Dear {username},
-                  Your verification code is {verification_code},
-                  Thank you for signing up..
-                  """
-                  send_mail(subject, message, 'syedhussain4508@gmail.com', [university_email])
-                  context = {'university_email': university_email}
-                  return render(request,'confirmationpage.html',context)
+              user=SellerSignUpModal.objects.get(university_email=university_email)
+              if user.DoesNotExist:
+                  if password == confirm_password:
+                      SellerSignUpModal.objects.create(
+                          username=username, university_email=university_email,
+                          university_name=university_name, mobile_no=mobile_phone,
+                          registration_number=university_reg_no, expert_in=expert_in,
+                          password=password, status=status, verification_code=verification_code
+                      )
+                      subject = 'Account Verification Code'
+                      message = f"""
+                      Dear {username},
+                      Your verification code is {verification_code},
+                      Thank you for signing up..
+                      """
+                      send_mail(subject, message, 'syedhussain4508@gmail.com', [university_email])
+                      context = {'university_email': university_email}
+                      return render(request, 'confirmationpage.html', context)
+                  else:
+                      data = {
+                          'error': 'Passwords do not match',
+                      }
+                      return render(request, 'sellerSignup.html', data)
               else:
-                  data={
-                      'error':'Passwords do not match',
+                  data = {
+                      'emailerror': 'email already exists',
                   }
-                  return render(request, 'sellerSignup.html',data)
+                  return render(request, 'sellerSignup.html', data)
           except Exception as e:
               return HttpResponse(e)
      return render(request, 'sellerSignup.html')

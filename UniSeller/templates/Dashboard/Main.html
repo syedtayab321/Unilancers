@@ -10,49 +10,101 @@
 </head>
 <body>
     {% if email %}
-        <div class="d-flex" id="wrapper">
+      <div class="container-fluid">
+    <div class="row">
         <!-- Sidebar -->
-        <div class="border-right" id="sidebar-wrapper">
-            <div class="sidebar-heading text-center py-4">
-                <img src="../../../static/unisellers/images/image1.jpg" class="img-fluid rounded-circle mb-2" alt="Profile Image">
-                <h4 class="text-white">{{ username }}</h4>
+        <nav class="col-md-3 col-lg-2 sidebar">
+            <h4 class="text-center mb-4">Dashboard</h4>
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Manage Orders
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Order 1</a>
+                <a class="dropdown-item" href="#">Order 2</a>
+                <a class="dropdown-item" href="#">Order 3</a>
+                <a class="dropdown-item" href="#">Order 4</a>
             </div>
-            <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action text-white">Add Gig</a>
-                <a href="#" class="list-group-item list-group-item-action text-white">View Messages</a>
-                <a href="#" class="list-group-item list-group-item-action text-white">Bid on Projects</a>
-                <a href="#" class="list-group-item list-group-item-action text-white">Manage Orders</a>
-                <a href="#" class="list-group-item list-group-item-action text-white">Profile Settings</a>
-                <a class="list-group-item list-group-item-action text-white">Logout</a>
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Manage Messages
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Message 1</a>
+                <a class="dropdown-item" href="#">Message 2</a>
+                <a class="dropdown-item" href="#">Message 3</a>
+                <a class="dropdown-item" href="#">Message 4</a>
             </div>
-        </div>
-            {% include 'Components/logout.html' %}
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                <button class="btn btn-primary" id="menu-toggle">
-                    <div class="line line1"></div>
-                    <div class="line line2"></div>
-                    <div class="line line3"></div>
-                </button>
-            </nav>
-
-            <div class="container-fluid">
-                <h1 class="mt-4">Seller Dashboard</h1>
-                <p>Welcome to your dashboard. Here you can manage your gigs, view messages, bid on projects, and more.</p>
-                <div class="button-group my-4">
-                    <button class="btn btn-success mx-2">Add Gig</button>
-                    <button class="btn btn-info mx-2">View Messages</button>
-                    <button class="btn btn-warning mx-2">Bid on Projects</button>
-                    <button class="btn btn-secondary mx-2">Manage Orders</button>
-                    <button class="btn btn-dark mx-2">Profile Settings</button>
-                    <button class="btn btn-danger mx-2"  data-toggle="modal" data-target="#logoutModal">Logout</button>
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Manage Products
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Product 1</a>
+                <a class="dropdown-item" href="#">Product 2</a>
+                <a class="dropdown-item" href="#">Product 3</a>
+                <a class="dropdown-item" href="#">Product 4</a>
+            </div>
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Manage Users
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">User 1</a>
+                <a class="dropdown-item" href="#">User 2</a>
+                <a class="dropdown-item" href="#">User 3</a>
+                <a class="dropdown-item" href="#">User 4</a>
+            </div>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="col-md-9 col-lg-10 content">
+            <h1 class="mb-4">User Projects</h1>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">Messages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="orders-tab" data-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false">Orders</a>
+                </li>
+            </ul>
+            <div class="tab-content mt-3" id="myTabContent">
+                <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Project 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Project 1</h5>
+                                    <p class="card-text">Short description of the project.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Project 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Project 2</h5>
+                                    <p class="card-text">Short description of the project.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Project 3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Project 3</h5>
+                                    <p class="card-text">Short description of the project.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="messages-tab">Messages content</div>
+                <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">Orders content</div>
             </div>
-        </div>
-        <!-- /#page-content-wrapper -->
+        </main>
     </div>
-    <!-- /#wrapper -->
+</div>
     {% else %}
         {% include 'Components/error.html' %}
     {% endif %}
