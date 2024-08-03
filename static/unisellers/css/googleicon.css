@@ -1,0 +1,57 @@
+.icon-menu-container {
+    margin-left: 20px;
+}
+
+.dots-icon {
+    background: none;
+    border: none;
+    display: grid;
+    grid-template-columns: repeat(3, 8px);
+    grid-gap: 4px;
+    cursor: pointer;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.icon-menu {
+    display: none;
+    position: absolute;
+    right: 30px;
+    background-color: #212121;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 1;
+    width: 200px;
+    margin-top: 10px;
+}
+
+.icon-menu.active {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.icon-item img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+.icon-item p {
+    margin: 0;
+    font-size: 12px;
+}

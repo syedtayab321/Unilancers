@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    font-family:'Poppins';
+    background-color: #fff;
+    overflow-x: hidden;
+}
+header nav form a {
+    margin: 10px;
+}
+
+.hero {
+    background-color: #004d00;
+    color: #fff;
+    padding: 4em 2em;
+    text-align: center;
+    width: 100%;
+}
+
+.hero .card {
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 2em;
+}
+
+.hero .card img {
+    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+    height: 200px;
+}
+
+.card-body {
+    padding: 1em;
+}
+
+.search-bar .form-control {
+    border-radius: 5px 0 0 5px;
+}
+
+.search-bar .btn {
+    border-radius: 0 5px 5px 0;
+}
+
+.trusted-by img {
+    margin: 0 1em;
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+footer {
+    background-color: #343a40;
+    color: #fff;
+    padding-top: 20px;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ffc107;
+    text-decoration: none;
+}
+
+footer h5 {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+footer hr {
+    border-top: 1px solid #fff;
+    width: 100%;
+}
+
+footer .fa {
+    margin-right: 10px;
+}
+.testominal{
+    width: 100%;
+    height: 100vh;
+    background-color: #010447;
+}

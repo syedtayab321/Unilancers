@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .verification-container {
+            max-width: 600px;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .verification-container h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .verification-container p {
+            font-size: 1.2rem;
+            color: #6c757d;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            margin-top: 20px;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container verification-container">
+        <h2>Verification Code Sent to {{ university_email }}</h2>
+        <p>We have sent a verification code to your email. Please enter the code below to verify your account and log in.</p>
+        <form method="post" action="{% url 'confirmation' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="hidden" name="university_email" value="{{ university_email }}">
+                <label for="verification-code">Verification Code</label>
+                <input type="text" class="form-control" id="verification-code" name="verification_code" placeholder="Enter Verification Code" required>
+                <Span class="text text-danger">{{ error }}</Span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Verify and Login</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
