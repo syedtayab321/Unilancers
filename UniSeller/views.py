@@ -119,3 +119,6 @@ def SellerDashboard(request):
 def logout_view(request):
     request.session.flush()  # Clear all session data
     return redirect('index')
+
+def ProjectDetails(request):
+    return render(request,'Dashboard/ProjectRelated/ProjectDetails.html')

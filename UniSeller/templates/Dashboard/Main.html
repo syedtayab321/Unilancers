@@ -7,104 +7,45 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../static/unisellers/css/maindashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 </head>
 <body>
     {% if email %}
-      <div class="container-fluid">
-    <div class="row">
-        <!-- Sidebar -->
-        <nav class="col-md-3 col-lg-2 sidebar">
-            <h4 class="text-center mb-4">Dashboard</h4>
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Manage Orders
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Order 1</a>
-                <a class="dropdown-item" href="#">Order 2</a>
-                <a class="dropdown-item" href="#">Order 3</a>
-                <a class="dropdown-item" href="#">Order 4</a>
-            </div>
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Manage Messages
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Message 1</a>
-                <a class="dropdown-item" href="#">Message 2</a>
-                <a class="dropdown-item" href="#">Message 3</a>
-                <a class="dropdown-item" href="#">Message 4</a>
-            </div>
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Manage Products
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Product 1</a>
-                <a class="dropdown-item" href="#">Product 2</a>
-                <a class="dropdown-item" href="#">Product 3</a>
-                <a class="dropdown-item" href="#">Product 4</a>
-            </div>
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Manage Users
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">User 1</a>
-                <a class="dropdown-item" href="#">User 2</a>
-                <a class="dropdown-item" href="#">User 3</a>
-                <a class="dropdown-item" href="#">User 4</a>
-            </div>
-        </nav>
-        
-        <!-- Main Content -->
-        <main class="col-md-9 col-lg-10 content">
-            <h1 class="mb-4">User Projects</h1>
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">All</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">Messages</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="orders-tab" data-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false">Orders</a>
-                </li>
-            </ul>
-            <div class="tab-content mt-3" id="myTabContent">
-                <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="card mb-4">
-                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Project 1">
-                                <div class="card-body">
-                                    <h5 class="card-title">Project 1</h5>
-                                    <p class="card-text">Short description of the project.</p>
-                                </div>
-                            </div>
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Sidebar -->
+               {% include 'Components/sidebar.html' %}
+                <!-- Main Content -->
+                <main class="col-md-9 col-lg-10 content">
+                    <h1 class="mb-4">Seller Dashboard</h1>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">Messages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="orders-tab" data-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false">Active Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="orders-tab" data-toggle="tab" href="#Gigs" role="tab" aria-controls="orders" aria-selected="false">Gigs</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content mt-3" id="myTabContent">
+                        <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+                            {% include 'Dashboard/ProjectRelated/Projectcard.html' %}
                         </div>
-                        <div class="col-md-4">
-                            <div class="card mb-4">
-                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Project 2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Project 2</h5>
-                                    <p class="card-text">Short description of the project.</p>
-                                </div>
-                            </div>
+                        <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+                            {% include 'Dashboard/ProjectRelated/messages.html' %}
                         </div>
-                        <div class="col-md-4">
-                            <div class="card mb-4">
-                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Project 3">
-                                <div class="card-body">
-                                    <h5 class="card-title">Project 3</h5>
-                                    <p class="card-text">Short description of the project.</p>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">Orders content</div>
+                        <div class="tab-pane fade" id="Gigs" role="tabpanel" aria-labelledby="orders-tab">Gigs</div>
                     </div>
-                </div>
-                <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="messages-tab">Messages content</div>
-                <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">Orders content</div>
+                </main>
             </div>
-        </main>
-    </div>
-</div>
+        </div>
     {% else %}
         {% include 'Components/error.html' %}
     {% endif %}

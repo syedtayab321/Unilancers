@@ -25,4 +25,5 @@ urlpatterns = [
     path('confirmation',views.confirmation,name='confirmation'),
     path('main',views.SellerDashboard,name='main'),
     path('logout',views.logout_view,name='logout'),
+    path('projectdetails',views.ProjectDetails,name='projectdetails'),
 ]

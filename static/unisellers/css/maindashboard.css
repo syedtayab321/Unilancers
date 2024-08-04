@@ -1,51 +1,131 @@
  body {
-            font-family: 'Poppins', sans-serif;
-        }
-        .sidebar {
-            min-height: 100vh;
-            background-color: #2C3E50;
-            color: #fff;
-            padding: 15px;
-        }
-        .sidebar .btn {
-            width: 100%;
-            text-align: left;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-        .sidebar .btn:hover {
-            background-color: #34495E;
-        }
-        .sidebar .dropdown-menu {
-            background-color: #34495E;
-        }
-        .sidebar .dropdown-item {
-            color: #fff;
-        }
-        .sidebar .dropdown-item:hover {
-            background-color: #3C5A72;
-        }
-        .content {
-            padding: 20px;
-        }
-        .card {
-            border: none;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-        }
-        .card-img-top {
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            margin: 0 auto 15px;
-        }
-        .nav-tabs .nav-link {
-            color: #495057;
-        }
-        .nav-tabs .nav-link.active {
-            color: #007bff;
-        }
+      font-family: 'Poppins', sans-serif;
+
+ }
+ .container-fluid .row{
+     flex-wrap: nowrap;
+ }
+ .content{
+     padding-top: 20px;
+ }
+ .sidebar {
+    height: 100vh;
+    background-color: #011343;
+    color: #ffffff;
+    padding-top: 20px;
+     max-width: 250px;
+}
+
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar-header h4 {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    align-items:start;
+}
+.sidebar-links ul {
+    width: 100%;
+}
+.sidebar-links .nav-item{
+    width: 100%;
+}
+.sidelinks{
+    text-decoration: none;
+    font-size: 16px;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 3px;
+    width: 100%;
+    transition: background-color 0.3s;
+    color:white;
+}
+
+.sidelinks:hover {
+    background-color: #ffffff;
+    color: #010447;
+}
+@media (max-width: 767px) {
+    .sidebar{
+        display: none;!important;
+    }
+}
+.logout {
+    width: 100%;
+    text-align: center;
+}
+
+.logout .btn {
+    width: 97%;
+    border-radius: 4px;
+}
+.tilecontainer .list-group{
+    background-color: #010447;
+}
+.tilecontainer .list-group-item {
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    background-color: #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.tilecontainer .list-group-item:hover {
+    background-color: #dee2e6; /* Slightly darker color on hover */
+    transform: scale(1.02);
+}
+
+.tilecontainer h5 {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.tilecontainer p {
+    font-size: 0.9rem;
+}
+
+.tilecontainer.badge {
+    font-size: 1.1rem;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.btn-info {
+    font-size: 0.9rem;
+    border-radius: 5px;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333; /* Darker text color */
+}
+
+.list-group-item {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* White background for list items */
+    margin-bottom: 10px;
+    padding: 15px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa; /* Light gray on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-secondary {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    border-radius: 5px;
+}

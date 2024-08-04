@@ -1,0 +1,52 @@
+body {
+    background-color: #020245; /* Light background color */
+    font-family: 'Poppins', sans-serif; /* Change font to Poppins */
+}
+
+.card {
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    margin: 30px 0;
+    background: #ffffff; /* White background for card */
+    border: 1px solid #dcdcdc; /* Light border for card */
+}
+
+.card-body {
+    padding: 40px;
+}
+
+.card-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #333; /* Darker text color */
+}
+
+.card-subtitle {
+    font-size: 1.2rem;
+    color: #666; /* Lighter text color */
+}
+
+.card-text {
+    font-size: 1.1rem;
+    color: #555; /* Medium text color */
+}
+
+ul.list-unstyled li {
+    font-size: 1rem;
+    color: #444; /* Slightly darker text color */
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    font-size: 1.2rem;
+    padding: 12px 24px;
+    border-radius: 25px;
+    background-color: #007bff; /* Primary button color */
+    border: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
