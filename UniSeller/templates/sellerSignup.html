@@ -7,13 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../static/unisellers/css/googleicon.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tagify/4.7.0/tagify.css">
     <style>
-        body{
+        body {
             font-family: 'Poppins';
             background-color: #011c36;
-            height:fit-content;
+            height: fit-content;
         }
-        main{
+        main {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -21,7 +22,7 @@
         .signup-container {
             margin-top: 20px;
             max-width: 600px;
-            background:white;
+            background: white;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -37,7 +38,7 @@
                 transform: translateY(0);
             }
         }
-        .form-group{
+        .form-group {
             padding: 10px;
         }
         .btn-primary {
@@ -58,6 +59,14 @@
         }
         .signin-link a:hover {
             text-decoration: underline;
+        }
+        .tagify{
+            min-height: 60px;
+            height: fit-content;
+        }
+        #skills {
+            min-width: 100%;
+            height: fit-content;
         }
     </style>
 </head>
@@ -106,6 +115,12 @@
                 </div>
             </div>
             <div class="form-row">
+                <div class="form-group col-md-12 tagify">
+                    <label for="skills">Skills</label>
+                    <input type="text" class="form-control" id="skills" name="skills" placeholder="Add your skills" required>
+                </div>
+            </div>
+            <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
@@ -116,6 +131,7 @@
                     <span class="text text-danger">{{ error }}</span>
                 </div>
             </div>
+            
             <button type="submit" class="btn btn-primary btn-block">Create Account</button>
             <div class="signin-link">
                 Already have an account? <a href="sellerlogin">Sign In</a>
@@ -126,6 +142,12 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="../../static/unisellers/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tagify/4.7.0/tagify.min.js"></script>
+    <script>
+        // Initialize Tagify on the skills input field
+        var input = document.querySelector('#skills');
+        var tagify = new Tagify(input);
+    </script>
+    <script src="../../static/unisellers/js/script.js"></script>
 </body>
 </html>

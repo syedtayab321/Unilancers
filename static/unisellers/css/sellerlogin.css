@@ -38,3 +38,8 @@ body {
     text-align: center;
     margin-top: 1rem;
 }
+.login-container .links{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}

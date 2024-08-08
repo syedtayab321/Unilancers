@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile</title>
+    <link rel="stylesheet" href="../../../static/unisellers/css/profileupdate.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-update-form">
+            <div class="profile-picture-section">
+                <label for="profile-picture" class="profile-picture-label">
+                    <img src="../../../static/unisellers/images/google.png" alt="Profile Picture" class="profile-picture" id="profile-picture-preview">
+                    <input type="file" id="profile-picture" class="profile-picture-input" accept="image/*">
+                    <span>Update Profile Picture</span>
+                </label>
+            </div>
+            <form class="profile-details-form">
+                <div class="form-group">
+                    <label for="user-name">Name</label>
+                    <input type="text" id="user-name" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="university-name">University Name</label>
+                    <input type="text" id="university-name" placeholder="Enter university name">
+                </div>
+                <div class="form-group">
+                    <label for="registration-number">Registration Number</label>
+                    <input type="text" id="registration-number" placeholder="Enter registration number">
+                </div>
+                <div class="form-group">
+                    <label for="university-email">University Email</label>
+                    <input type="email" id="university-email" placeholder="Enter university email">
+                </div>
+                <div class="form-group">
+                    <label for="user-address">Address</label>
+                    <input type="text" id="user-address" placeholder="Enter your address">
+                </div>
+                <div class="form-group expertise-group">
+                    <label>Expertise</label>
+                    <div class="expertise-options">
+                        <label><input type="checkbox" value="Web Development"> Web Development</label>
+                        <label><input type="checkbox" value="Graphic Design"> Graphic Design</label>
+                        <label><input type="checkbox" value="Data Analysis"> Data Analysis</label>
+                        <!-- Add more expertise options as needed -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="services">Services Offered</label>
+                    <textarea id="services" placeholder="Describe the services you offer"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="summary">Summary</label>
+                    <textarea id="summary" placeholder="Write a brief summary about yourself"></textarea>
+                </div>
+                <button type="submit" class="update-profile-button">Update Profile</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('profile-picture').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profile-picture-preview').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -94,6 +94,7 @@
         display: block; /* Make it visible */
      transform: translateX(0);
     }
+
 }
 .logout {
     width: 100%;
@@ -117,10 +118,6 @@
     color: white;
 }
 
-.tilecontainer .list-group-item:hover {
-    transform: scale(1.02);
-}
-
 .tilecontainer h5 {
     font-size: 1.25rem;
     font-weight: bold;
@@ -130,7 +127,7 @@
     font-size: 0.9rem;
 }
 
-.tilecontainer.badge {
+.tilecontainer .badge {
     font-size: 1.1rem;
     padding: 10px;
     border-radius: 5px;
@@ -146,13 +143,229 @@ h1 {
     font-weight: 600;
     color: #333; /* Darker text color */
 }
+.tilecontainer .btn .linkk{
+    color: white;
+    text-decoration: none;
 
-.list-group-item {
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff; /* White background for list items */
-    margin-bottom: 10px;
-    padding: 15px;
-    transition: background-color 0.3s, box-shadow 0.3s;
+}
+/* Message card styling */
+.message-card {
+    background-color: #02114c;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 10px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* Card header styling */
+.message-card-header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.message-card-client-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.message-card-date-time {
+    font-size: 0.9em;
+    color: #0afa1c;
+}
+
+/* Card body styling */
+.message-card-body {
+    margin-bottom: 10px;
+}
+
+.message-card-message {
+    font-size: 1em;
+    color: #ffffff;
+}
+
+/* Card footer styling */
+.message-card-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.message-card-view-details {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.message-card-view-details:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .message-card {
+        padding: 15px;
+        max-width: 100%;
+    }
+}
+
+/* styles.css */
+
+/* Container for tiles */
+.tile-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Tile styling */
+.project-tile {
+    background-color:#045369;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 350px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+/* Tile hover effect */
+.project-tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Project title styling */
+.project-title {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+/* Project details styling */
+.project-details {
+    margin-bottom: 15px;
+}
+
+.project-details p {
+    font-size: 1em;
+    color: #ffffff;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+.project-details p:last-of-type {
+    border-bottom: none; /* Remove border from last item */
+}
+
+/* View Details button styling */
+.project-view-details {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.project-view-details:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .tile-container {
+        padding: 15px;
+    }
+
+    .project-tile {
+        max-width: 100%;
+    }
+}
+
+
+ /* styles.css */
+
+/* Container for gigs */
+.gig-container {
+    padding: 20px;
+}
+
+/* Grid layout for gigs */
+.gig-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Individual gig card styling */
+.gig-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gig-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.gig-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.gig-details {
+    padding: 15px;
+}
+
+.gig-title {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+.gig-field, .gig-sub-field {
+    font-size: 1em;
+    color: #555;
+    margin: 5px 0;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 600px) {
+    .gig-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gig-image {
+        height: 150px;
+    }
 }

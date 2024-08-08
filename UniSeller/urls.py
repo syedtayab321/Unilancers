@@ -26,4 +26,6 @@ urlpatterns = [
     path('main',views.SellerDashboard,name='main'),
     path('logout',views.logout_view,name='logout'),
     path('projectdetails',views.ProjectDetails,name='projectdetails'),
+    path('profile',views.Profile,name='profile'),
+    path('tokenpage', views.TokenPage, name='tokenPage'),
 ]

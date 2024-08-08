@@ -12,6 +12,7 @@
 </head>
 <body>
     {% if email %}
+        {% include 'Components/logout.html' %}
         <div class="container-fluid">
             <div class="row">
                 <!-- Sidebar -->
@@ -34,14 +35,22 @@
                         </li>
                     </ul>
                     <div class="tab-content mt-3" id="myTabContent">
+                       <!--project cards -->
                         <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
                             {% include 'Dashboard/ProjectRelated/Projectcard.html' %}
                         </div>
+                         <!--project messages -->
                         <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="messages-tab">
                             {% include 'Dashboard/ProjectRelated/messages.html' %}
                         </div>
-                        <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">Orders content</div>
-                        <div class="tab-pane fade" id="Gigs" role="tabpanel" aria-labelledby="orders-tab">Gigs</div>
+                         <!--project active projects -->
+                        <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+                            {% include 'Dashboard/ProjectRelated/activeprojects.html' %}
+                        </div>
+                         <!--project gigs -->
+                        <div class="tab-pane fade" id="Gigs" role="tabpanel" aria-labelledby="orders-tab">
+                            {% include 'Dashboard/ProjectRelated/gigs.html' %}
+                        </div>
                     </div>
                 </main>
             </div>
