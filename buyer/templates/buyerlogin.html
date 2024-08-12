@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./../../static/buyer/css/buyerlogin.css">
+</head>
+
+<body>
+    <section class="login">
+        <div class="login_box">
+            <div class="left">
+                
+                <div class="contact">
+                    <form action={% url "buyer" %}>
+                        {% csrf_token %}
+                        <h3>SIGN IN</h3>
+                        <input type="text" placeholder="USERNAME" name="uername">
+                        <input type="password" placeholder="PASSWORD" name="password">
+                        
+                        <!-- Added Forget Password link -->
+                        <div class="text-right">
+                            <a href="#" class="forgot-password">Forgot Password?</a>
+                        </div>
+                        
+                        <button class="submit">LET'S GO</button>
+                        
+                        <!-- Added Already have an account link -->
+                        <div class="text-center">
+                            <p>Don't have an account? <a href="signup">Sign up</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="right">
+                <div class="right-text">
+                    <h2>Unilancerz</h2>
+                    <h5>A great Freelance Market Place For Students!</h5>
+                </div>
+                <div class="right-inductor">
+                    <img src="" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
