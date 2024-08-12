@@ -26,6 +26,5 @@ urlpatterns = [
     path('projectdetails',views.ProjectDetails,name='projectdetails'),
     path('profile',views.Profile,name='profile'),
     path('tokenpage', views.TokenPage, name='tokenPage'),
-
     path('gigcreate',views.CreateGig,name='gigcreate'),
 ]

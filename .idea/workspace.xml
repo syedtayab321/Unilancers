@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4726bc5-77b9-47a1-abde-b6ed34229894" name="Changes" comment="" />
+    <list default="true" id="b4726bc5-77b9-47a1-abde-b6ed34229894" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/UniSeller/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/urls.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,6 +85,7 @@
       <workItem from="1723390770220" duration="3484000" />
       <workItem from="1723410030748" duration="2096000" />
       <workItem from="1723427952982" duration="11689000" />
+      <workItem from="1723484400558" duration="520000" />
     </task>
     <servers />
   </component>
