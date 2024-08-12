@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="icon" href="../../static/unisellers/googlelogos/play.png">
+    <title>Add Gig</title>
+    <link rel="stylesheet" href="../../../../static/unisellers/css/gigcreate.css">
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+   {% if request.session.email %}
+    <div class="container">
+        <h1 class="page-title">Add New Gig</h1>
+        <form id="addGigForm" method="post" enctype="multipart/form-data" action={% url 'gigcreate' %}>
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="sellerid">Seller Id</label>
+                <input type="number" id="sellerid" name="SellerId" value="{{ request.session.sellerId }}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="gigTitle">Gig Title</label>
+                <input type="text" id="gigTitle" name="gigTitle" required>
+            </div>
+            <div class="form-group">
+                <label for="gigField">Field</label>
+                <select id="gigField" name="gigField" onchange="updateSubFields()" required>
+                    <option value="">Select Field</option>
+                    <option value="programming">Programming</option>
+                    <option value="writing">Writing</option>
+                    <option value="business">Business</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="gigSubField">Sub-field</label>
+                <select id="gigSubField" name="gigSubField" required>
+                    <option value="">Select Sub-field</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="gigDescription">Description</label>
+                <textarea id="gigDescription" name="gigDescription" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="gigPrice">Price ($)</label>
+                <input type="number" id="gigPrice" name="gigPrice" min="0" required>
+            </div>
+            <div class="form-group images">
+                <label for="gigImages">Your Work Images</label>
+                <div class="card-container">
+                    <div class="card">
+                        <input type="file" id="gigImage1" name="gigImage1" placeholder="Image URL 1" required>
+                    </div>
+                    <div class="card">
+                        <input type="file" id="gigImage2" name="gigImage2" placeholder="Image URL 2">
+                    </div>
+                    <div class="card">
+                        <input type="file" id="gigImage3" name="gigImage3" placeholder="Image URL 3">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Gig</button>
+        </form>
+    </div>
+   {% else %}
+       {% include 'Components/error.html' %}
+   {% endif %}
+{#   javascript codes #}
+    <script>
+        const subFields = {
+    programming: ['Website Development', 'App Development', 'Website Maintenance','Android Development'],
+    writing: ['Content Writing', 'Technical Writing', 'Copywriting'],
+    business: ['Business Consulting', 'Market Research', 'Business Plan']
+};
+
+function updateSubFields() {
+    const fieldSelect = document.getElementById('gigField');
+    const subFieldSelect = document.getElementById('gigSubField');
+    const selectedField = fieldSelect.value;
+
+    // Clear existing options
+    subFieldSelect.innerHTML = '<option value="">Select Sub-field</option>';
+
+    if (selectedField && subFields[selectedField]) {
+        // Add new options based on selected field
+        subFields[selectedField].forEach(subField => {
+            const option = document.createElement('option');
+            option.value = subField.toLowerCase().replace(/\s+/g, '-');
+            option.textContent = subField;
+            subFieldSelect.appendChild(option);
+        });
+    }
+}
+    </script>
+</body>
+</html>

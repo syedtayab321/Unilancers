@@ -6,12 +6,13 @@
     <title>Seller Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="icon" href="../../static/unisellers/googlelogos/play.png">
     <link rel="stylesheet" href="../../../static/unisellers/css/maindashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 </head>
 <body>
-    {% if email %}
+    {% if request.session.email %}
         {% include 'Components/logout.html' %}
         <div class="container-fluid">
             <div class="row">
@@ -37,19 +38,19 @@
                     <div class="tab-content mt-3" id="myTabContent">
                        <!--project cards -->
                         <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
-                            {% include 'Dashboard/ProjectRelated/Projectcard.html' %}
+                            {% include 'Dashboard/DashboardComponents/Projectcard.html' %}
                         </div>
                          <!--project messages -->
                         <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="messages-tab">
-                            {% include 'Dashboard/ProjectRelated/messages.html' %}
+                            {% include 'Dashboard/DashboardComponents/messages.html' %}
                         </div>
                          <!--project active projects -->
                         <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
-                            {% include 'Dashboard/ProjectRelated/activeprojects.html' %}
+                            {% include 'Dashboard/DashboardComponents/activeprojects.html' %}
                         </div>
                          <!--project gigs -->
                         <div class="tab-pane fade" id="Gigs" role="tabpanel" aria-labelledby="orders-tab">
-                            {% include 'Dashboard/ProjectRelated/gigs.html' %}
+                            {% include 'Dashboard/DashboardComponents/gigs.html' %}
                         </div>
                     </div>
                 </main>

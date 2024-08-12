@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="icon" href="../../static/unisellers/googlelogos/play.png">
     <title>Signup Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../static/unisellers/css/googleicon.css">
@@ -75,7 +76,7 @@
     <main>
         <div class="container signup-container">
         <h2 class="text-center mb-4">Signup</h2>
-        <form method="post" action={% url 'sellersignupdata' %}>
+        <form method="post" action={% url 'sellersignup' %}>
             {% csrf_token %}
             <div class="form-row">
                 <div class="form-group col-md-6">

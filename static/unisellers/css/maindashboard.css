@@ -14,6 +14,7 @@
     color: #ffffff;
     padding-top: 20px;
      max-width: 250px;
+     position: sticky;
 }
 
 .sidebar-header {
@@ -369,3 +370,9 @@ h1 {
         height: 150px;
     }
 }
+
+ .gig-controls{
+     position: absolute;
+     right: 20px;
+     top: 140px;
+ }

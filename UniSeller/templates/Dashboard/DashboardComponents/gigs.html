@@ -1,0 +1,24 @@
+{% for fields in data %}
+<div class="gig-container">
+    <div class="gig-controls">
+        <a class="btn btn-primary" href="gigcreate" target="_blank">Create Gig</a>
+        <button class="btn btn-danger" onclick="deleteSelected()">Delete Selected</button>
+    </div>
+
+    <div class="gig-grid">
+        <!-- Example Gig Card with checkbox -->
+        <div class="gig-card">
+            <input type="checkbox" class="gig-checkbox">
+            <img src="{{ fields.gig_image1.url }}" alt="Gig Image" class="gig-image">
+            <div class="gig-details">
+                <h3 class="gig-title">Title: {{ fields.gig_title }}</h3>
+                <p class="gig-field">Field: {{ fields.field }}</p>
+                <p class="gig-sub-field">SubField: {{ fields.sub_field }}</p>
+                <p class="gig-sub-field">Price: {{ fields.gig_price }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% empty %}
+    <h1>No gig data found</h1>
+{% endfor %}

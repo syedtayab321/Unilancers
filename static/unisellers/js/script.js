@@ -8,3 +8,4 @@ function toggleMenu() {
     const menu = document.getElementById('iconMenu');
     menu.classList.toggle('active');
 }
+

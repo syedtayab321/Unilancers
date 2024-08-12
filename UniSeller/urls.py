@@ -19,13 +19,13 @@ from UniSeller import views
 urlpatterns = [
     path('',views.index,name='index'),
     path('sellerlogin',views.SellerLogin,name='sellerlogin'),
-    path('sellerlogindata',views.SellerLoginData,name='sellerlogindata'),
     path('sellersignup',views.SellerSignUp,name='sellersignup'),
-    path('sellersignupdata',views.SellerSingUpData,name='sellersignupdata'),
     path('confirmation',views.confirmation,name='confirmation'),
     path('main',views.SellerDashboard,name='main'),
     path('logout',views.logout_view,name='logout'),
     path('projectdetails',views.ProjectDetails,name='projectdetails'),
     path('profile',views.Profile,name='profile'),
     path('tokenpage', views.TokenPage, name='tokenPage'),
+
+    path('gigcreate',views.CreateGig,name='gigcreate'),
 ]

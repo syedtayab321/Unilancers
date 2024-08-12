@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Details</title>
+      <link rel="icon" href="../../static/unisellers/googlelogos/play.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../../static/unisellers/css/projectdetails.css">
 </head>
 <body>
+{% include 'Dashboard/ProjectRelated/ProjectApplyModal.html'%}
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -26,13 +28,14 @@
                         </ul>
                         <p class="card-text mt-4"><strong>Price:</strong> $500</p>
                         <p class="card-text"><strong>Time Range:</strong> August 5, 2024 - August 15, 2024</p>
-                        <a href="#" class="btn btn-primary mt-3">Apply Now</a>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                          Open Form Modal
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
