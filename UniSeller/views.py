@@ -176,3 +176,6 @@ def CreateGig(request):
 def ViewGig(request,id):
     gigdata=models.GigDataModal.objects.get(id=id)
     return render(request,'Dashboard/ManageGigs/ViewGigsDetails.html',{'gigdata':gigdata})
+
+def GigDelete(request,id):
+    return HttpResponse(id)

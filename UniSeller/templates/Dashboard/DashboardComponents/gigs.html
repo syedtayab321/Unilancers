@@ -2,9 +2,7 @@
 
     <div class="gig-grid">
         {% for fields in data %}
-         <form>
          <div class="gig-card">
-            <input type="checkbox" class="gig-checkbox" name="checkbox">
             <img src="{{ fields.gig_image1.url }}" alt="Gig Image" class="gig-image">
             <div class="gig-details">
                 <h3 class="gig-title">Title: {{ fields.gig_title }}</h3>
@@ -12,16 +10,18 @@
                 <p class="gig-sub-field">SubField: {{ fields.sub_field }}</p>
                 <p class="gig-sub-field">Price: {{ fields.gig_price }}</p>
                 <a class="btn btn-primary" href="{% url 'viewgigs' fields.id %}" target="_blank">View Details</a>
+                <a class="btn btn-danger" href="{% url 'gigdelete' fields.id %}" target="_blank">Delete</a>
             </div>
         </div>
         <div class="gig-controls">
             <a class="btn btn-primary" href="gigcreate" target="_blank">Create Gig</a>
-            <button class="btn btn-danger" onclick="deleteSelected()">Delete Selected</button>
         </div>
-         </form>
         {% empty %}
         <h1>No gig data found</h1>
+            <div class="gig-controls">
+            <a class="btn btn-primary" href="gigcreate" target="_blank">Create Gig</a>
+        </div>
+        {% endfor %}
     </div>
 </div>
 
-{% endfor %}
