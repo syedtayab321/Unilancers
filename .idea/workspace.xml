@@ -4,36 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4726bc5-77b9-47a1-abde-b6ed34229894" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/ProjectApplyModal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/unilancers.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Components/Navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Components/Navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/BidTokens.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/BidTokens.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/Main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProfileUpdate.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProfileUpdate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/ProjectDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/ProjectDetails.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/Projectcard.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/DashboardComponents/Projectcard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/activeprojects.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/DashboardComponents/activeprojects.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/gigs.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/DashboardComponents/gigs.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/messages.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/DashboardComponents/messages.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/SellerLogin.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/SellerLogin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/confirmationpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/confirmationpage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/sellerSignup.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/sellerSignup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/unisellers/css/maindashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/unisellers/css/maindashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/unisellers/css/projectdetails.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/unisellers/css/projectdetails.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/unisellers/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/unisellers/js/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unilancers/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/unilancers/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unilancers/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/unilancers/urls.py" afterDir="false" />
-    </list>
+    <list default="true" id="b4726bc5-77b9-47a1-abde-b6ed34229894" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,7 +82,7 @@
       <workItem from="1723352831573" duration="2762000" />
       <workItem from="1723390770220" duration="3484000" />
       <workItem from="1723410030748" duration="2096000" />
-      <workItem from="1723427952982" duration="11518000" />
+      <workItem from="1723427952982" duration="11689000" />
     </task>
     <servers />
   </component>
