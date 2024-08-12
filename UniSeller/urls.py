@@ -27,4 +27,5 @@ urlpatterns = [
     path('profile',views.Profile,name='profile'),
     path('tokenpage', views.TokenPage, name='tokenPage'),
     path('gigcreate',views.CreateGig,name='gigcreate'),
+    path('viewgigs/<int:id>/',views.ViewGig,name='viewgigs'),
 ]

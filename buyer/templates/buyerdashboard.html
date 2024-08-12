@@ -37,26 +37,106 @@
             <!-- Add Project Section -->
             <section id="add-project">
                 <h2>Add Project</h2>
-                <!-- Add your form or content for adding a project here -->
+                <form action="{% url 'add_project' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="projectName">Project Name</label>
+                        <input type="text" class="form-control" id="projectName" name="project_name" placeholder="Enter project name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectDescription">Project Description</label>
+                        <textarea class="form-control" id="projectDescription" name="project_description" rows="4" placeholder="Enter project description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectRequirements">Project Requirements</label>
+                        <textarea class="form-control" id="projectRequirements" name="project_requirements" rows="4" placeholder="List the project requirements" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectBudget">Budget</label>
+                        <input type="number" class="form-control" id="projectBudget" name="project_budget" placeholder="Enter project budget" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectDeadline">Deadline</label>
+                        <input type="date" class="form-control" id="projectDeadline" name="project_deadline" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Project</button>
+                </form>
             </section>
 
-            <!-- View Requests Section -->
-            <section id="view-request">
-                <h2>View Requests</h2>
-                <!-- Add your content for viewing requests here -->
-            </section>
+           <!-- View Requests Section -->
+<section id="view-request">
+    <h2>View Requests</h2>
+    <!-- Table to display project requests -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Project Name</th>
+                <th>Seller ID</th>
+                <th>Price</th>
+                <th>Tokens</th>
+                <th>Date From</th>
+                <th>Date To</th>
+                <th>Cover Letter</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for request in requests %}
+            <tr>
+                <td>{{ request.project_name }}</td>
+                <td>{{ request.seller_id }}</td>
+                <td>{{ request.project_price }}</td>
+                <td>{{ request.project_tokens }}</td>
+                <td>{{ request.date_from }}</td>
+                <td>{{ request.date_to }}</td>
+                <td>{{ request.cover_letter }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="7">No requests found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
 
-            <!-- Messages Section -->
-            <section id="message">
-                <h2>Messages</h2>
-                <!-- Add your chat interface or content for messages here -->
-            </section>
+<!-- Messages Section -->
+<section id="message">
+    <h2>Messages</h2>
+    <div class="message-container">
+        <!-- Message list -->
+        <div class="message-list">
+            <!-- Example message card -->
+            <div class="message-card">
+                <div class="message-body">
+                    <p>Hello, I am interested in your project.</p>
+                </div>
+                <div class="message-footer">
+                    <div class="message-info">
+                        <h5>Sender Name</h5>
+                        <small>10:30 AM</small>
+                    </div>
+                    <a href="#" class="btn btn-primary">Chat</a>
+                </div>
+            </div>
+            <!-- Repeat message cards as needed -->
+        </div>
+    </div>
+</section>
 
-            <!-- Profile Section -->
-            <section id="profile">
-                <h2>Profile</h2>
-                <!-- Add your form or content for updating profile here -->
-            </section>
+           <!-- Profile Section -->
+<section id="profile">
+    <h2>Profile</h2>
+    <div class="card">
+        <div class="card-header">
+            User Profile
+        </div>
+        <div class="card-body">
+            <p><strong>Username:</strong> {{ request.session.username }}</p>
+            <p><strong>Email:</strong> {{ request.session.email }}</p>
+        </div>
+    </div>
+</section>
+
         </div>
     </div>
 </body>

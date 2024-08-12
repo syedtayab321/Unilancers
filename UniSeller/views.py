@@ -118,12 +118,12 @@ def logout_view(request):
 def ProjectDetails(request):
     if request.method =='POST':
           try:
-              project_name=request.POST.get('project_name')
-              seller_id=request.POST.get('seller_id')
-              project_price=request.POST.get('project_price')
-              project_token=request.POST.get('project_token')
-              date_from=request.POST.get('date_from')
-              date_to=request.POST.get('date_to')
+              project_name = request.POST.get('project_name')
+              seller_id = request.POST.get('seller_id')
+              project_price = request.POST.get('project_price')
+              project_token = request.POST.get('project_token')
+              date_from = request.POST.get('date_from')
+              date_to = request.POST.get('date_to')
               cover_letter=request.POST.get('cover_letter')
               models.ProjectAppliedModal.objects.create(
                       project_name=project_name,
@@ -172,3 +172,7 @@ def CreateGig(request):
         except Exception as e:
             return HttpResponse(e)
     return render(request,'Dashboard/ManageGigs/CreateGig.html')
+
+def ViewGig(request,id):
+    gigdata=models.GigDataModal.objects.get(id=id)
+    return render(request,'Dashboard/ManageGigs/ViewGigsDetails.html',{'gigdata':gigdata})
