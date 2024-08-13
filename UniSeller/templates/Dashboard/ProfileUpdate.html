@@ -3,74 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Profile</title>
       <link rel="icon" href="../../static/unisellers/googlelogos/play.png">
-    <link rel="stylesheet" href="../../../static/unisellers/css/profileupdate.css">
+    <title>Signup Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tagify/4.7.0/tagify.css">
+    <style>
+        body {
+            font-family: 'Poppins';
+            background-color: #011c36;
+            height: fit-content;
+        }
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .signup-container {
+            margin-top: 20px;
+            min-width: 600px;
+            width: 1000px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .form-group {
+            padding: 10px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .signin-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .signin-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .signin-link a:hover {
+            text-decoration: underline;
+        }
+        .tagify{
+            min-height: 60px;
+            height: fit-content;
+        }
+        #skills {
+            min-width: 100%;
+            height: fit-content;
+        }
+        .avatar-upload {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .avatar-upload input[type="file"] {
+            display: none;
+        }
+        .avatar-preview {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid #007bff;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .avatar-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .avatar-upload label {
+            cursor: pointer;
+            font-size: 1rem;
+            color: #007bff;
+            text-decoration: underline;
+        }
+        .avatar-upload label:hover {
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-    <div class="profile-container">
-        <div class="profile-update-form">
-            <div class="profile-picture-section">
-                <label for="profile-picture" class="profile-picture-label">
-                    <img src="../../../static/unisellers/images/google.png" alt="Profile Picture" class="profile-picture" id="profile-picture-preview">
-                    <input type="file" id="profile-picture" class="profile-picture-input" accept="image/*">
-                    <span>Update Profile Picture</span>
-                </label>
-            </div>
-            <form class="profile-details-form">
-                <div class="form-group">
-                    <label for="user-name">Name</label>
-                    <input type="text" id="user-name" placeholder="Enter your name">
-                </div>
-                <div class="form-group">
-                    <label for="university-name">University Name</label>
-                    <input type="text" id="university-name" placeholder="Enter university name">
-                </div>
-                <div class="form-group">
-                    <label for="registration-number">Registration Number</label>
-                    <input type="text" id="registration-number" placeholder="Enter registration number">
-                </div>
-                <div class="form-group">
-                    <label for="university-email">University Email</label>
-                    <input type="email" id="university-email" placeholder="Enter university email">
-                </div>
-                <div class="form-group">
-                    <label for="user-address">Address</label>
-                    <input type="text" id="user-address" placeholder="Enter your address">
-                </div>
-                <div class="form-group expertise-group">
-                    <label>Expertise</label>
-                    <div class="expertise-options">
-                        <label><input type="checkbox" value="Web Development"> Web Development</label>
-                        <label><input type="checkbox" value="Graphic Design"> Graphic Design</label>
-                        <label><input type="checkbox" value="Data Analysis"> Data Analysis</label>
-                        <!-- Add more expertise options as needed -->
+    <main>
+        <div class="container signup-container">
+        <h2 class="text-center mb-4">Profile Update Data</h2>
+        <form method="post" action={% url 'profile' %}  enctype="multipart/form-data">
+            {% csrf_token %}
+             <div class="avatar-upload">
+                    <div class="avatar-preview" id="avatarPreview">
+                        <img id="avatarImage" src="{{ userdata.profile_picture.url }}" alt="Avatar Preview">
                     </div>
+                    <label for="avatarInput">Choose an avatar</label>
+                    <input type="file" id="avatarInput" name="image" accept="image/*" required>
                 </div>
-                <div class="form-group">
-                    <label for="services">Services Offered</label>
-                    <textarea id="services" placeholder="Describe the services you offer"></textarea>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="{{ userdata.username }}">
                 </div>
-                <div class="form-group">
-                    <label for="summary">Summary</label>
-                    <textarea id="summary" placeholder="Write a brief summary about yourself"></textarea>
+                <div class="form-group col-md-6">
+                    <label for="university-email">University Email</label>
+                    <input type="email" class="form-control" id="university-email" name="university_email" placeholder="University Email" readonly value="{{ userdata.university_email }}">
+                    <span class="text text-danger">{{ emailerror }}</span>
                 </div>
-                <button type="submit" class="update-profile-button">Update Profile</button>
-            </form>
-        </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="mobile-number">Mobile Number</label>
+                    <input type="tel" class="form-control" id="mobile-number" name="mobile_phone" placeholder="Mobile Number" value="{{ userdata.mobile_no }}">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="university-name">University Name</label>
+                    <input type="text" class="form-control" id="university-name" name="university_name" placeholder="University Name" value="{{ userdata.university_name }}">
+                </div>
+            </div>
+            <div class="form-row">
+                 <div class="form-group col-md-6">
+                     <label for="field-of-study">Field of Study</label>
+                <select class="form-control" id="field-of-study" name="field_of_study" required>
+                    <option>{{ userdata.study_field }}</option>
+                    <option>Software Engineering</option>
+                    <option>Data Science</option>
+                    <option>Cyber Security</option>
+                    <option>Information Technology</option>
+                    <option>Artificial Intelligence</option>
+                </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="university-reg-no">University Reg No</label>
+                    <input type="text" class="form-control" id="university-reg-no" name="university_reg_no" placeholder="Registration Number"value="{{ userdata.registration_number }}">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12 tagify">
+                    <label for="skills">Skills</label>
+                    <input type="text" class="form-control" id="skills" name="skills" placeholder="Add your skills" value="{{ userdata.skills }}">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Update Data</button>
+        </form>
     </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tagify/4.7.0/tagify.min.js"></script>
     <script>
-        document.getElementById('profile-picture').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById('profile-picture-preview').src = e.target.result;
-                };
-                reader.readAsDataURL(file);
+        // Initialize Tagify on the skills input field
+        var input = document.querySelector('#skills');
+        var tagify = new Tagify(input);
+
+        // Handle avatar image preview
+        document.getElementById('avatarInput').addEventListener('change', function(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var avatarImage = document.getElementById('avatarImage');
+                avatarImage.src = reader.result;
             }
+            reader.readAsDataURL(event.target.files[0]);
         });
     </script>
+    <script src="../../static/unisellers/js/script.js"></script>
 </body>
 </html>
