@@ -13,6 +13,8 @@ def index(request):
 
 #seller login related
 def SellerLogin(request):
+    if 'email' in request.session:
+        return redirect('main')
     if request.method == "POST":
         email = request.POST.get('email')
         password = request.POST.get('password')
@@ -26,9 +28,10 @@ def SellerLogin(request):
             else:
                 return render(request, 'SellerLogin.html', {'passworderror': 'Wrong password'})
         except models.SellerSignUpModal.DoesNotExist:
-            return render(request, 'SellerLogin.html', {'emailerror': 'email did not exists'})
+            return render(request, 'SellerLogin.html', {'emailerror': 'Email does not exist'})
         except Exception as e:
             return HttpResponse(f'An error occurred: {str(e)}')
+
     return render(request, 'SellerLogin.html')
 
 
@@ -133,6 +136,7 @@ def ProjectDetails(request):
 def ProjectDetailsAdd(request):
     if request.method == 'POST':
             project_name = request.POST.get('project_name')
+            posted_by=request.POST.get('posted_by')
             seller_id = request.POST.get('seller_id')
             project_price = request.POST.get('project_price')
             project_token = request.POST.get('project_token')
@@ -142,6 +146,7 @@ def ProjectDetailsAdd(request):
             try:
                 models.ProjectAppliedModal.objects.create(
                     project_name=project_name,
+                    posted_by=posted_by,
                     seller_id=seller_id,
                     project_price=project_price,
                     project_tokens=project_token,
@@ -149,10 +154,12 @@ def ProjectDetailsAdd(request):
                     Date_to=date_to,
                     cover_letter=cover_letter,
                 )
-                return render(request,'Dashboard/ProjectRelated/ProjectDetails.html')
+                return HttpResponse('Project Applied Successfully')
             except Exception as e:
                 return HttpResponse(e)
     return render(request, 'Dashboard/ProjectRelated/ProjectApplyModal.html')
+
+
 def Profile(request):
     if request.method == "POST":
         profile_picture = request.FILES.get('image')
@@ -163,25 +170,39 @@ def Profile(request):
         university_reg_no = request.POST.get('university_reg_no')
         study_field = request.POST.get('field_of_study')
         skills = request.POST.get('skills')
+
         try:
-            models.SellerSignUpModal.objects.filter(university_email=university_email).update(
-                username=username,
-                profile_picture=profile_picture,
-                university_email=university_email,
-                university_name=university_name,
-                mobile_no=mobile_phone,
-                registration_number=university_reg_no,
-                study_field=study_field,
-                skills=skills,
-            )
-            email = request.session['email']
-            userdata = models.SellerSignUpModal.objects.get(university_email=email)
+            # Ensure we fetch the existing user to update their information
+            user = models.SellerSignUpModal.objects.get(university_email=university_email)
+
+            # Update fields, including profile picture if provided
+            user.username = username
+            user.profile_picture = profile_picture if profile_picture else user.profile_picture
+            user.university_email = university_email
+            user.university_name = university_name
+            user.mobile_no = mobile_phone
+            user.registration_number = university_reg_no
+            user.study_field = study_field
+            user.skills = skills
+            user.save()
+
+            # Fetch updated user data
+            userdata = models.SellerSignUpModal.objects.get(university_email=university_email)
             return render(request, 'Dashboard/ProfileUpdate.html', {'userdata': userdata})
+        except models.SellerSignUpModal.DoesNotExist:
+            return HttpResponse('User not found', status=404)
         except Exception as e:
-            return HttpResponse(e)
-    email = request.session['email']
-    userdata = models.SellerSignUpModal.objects.get(university_email=email)
-    return render(request, 'Dashboard/ProfileUpdate.html', {'userdata': userdata})
+            return HttpResponse(f'An error occurred: {e}')
+
+    email = request.session.get('email')
+    if not email:
+        return HttpResponse('No email in session', status=400)
+
+    try:
+        userdata = models.SellerSignUpModal.objects.get(university_email=email)
+        return render(request, 'Dashboard/ProfileUpdate.html', {'userdata': userdata})
+    except models.SellerSignUpModal.DoesNotExist:
+        return HttpResponse('User not found', status=404)
 
 
 def TokenPage(request):
@@ -201,18 +222,21 @@ def CreateGig(request):
         gig_image3 = request.FILES.get('gigImage3')
 
         try:
-            # Create a new GigDataModal instance
-            new_gig = models.GigDataModal.objects.create(
-                seller_id=sellerId,
-                gig_title=gig_title,
-                field=gig_field,
-                sub_field=gig_subfield,
-                description=gig_description,
-                gig_image1=gig_image1,
-                gig_image2=gig_image2,
-                gig_image3=gig_image3,
-            )
-            return HttpResponse('Successfully registered data')
+           totalgigs=models.GigDataModal.objects.get(seller_id=sellerId)
+           if len(totalgigs) <= 4:
+               new_gig = models.GigDataModal.objects.create(
+                   seller_id=sellerId,
+                   gig_title=gig_title,
+                   field=gig_field,
+                   sub_field=gig_subfield,
+                   description=gig_description,
+                   gig_image1=gig_image1,
+                   gig_image2=gig_image2,
+                   gig_image3=gig_image3,
+               )
+               return HttpResponse('Successfully registered data')
+           else:
+               return HttpResponse('You can only add 4 gig samples not more than that')
         except Exception as e:
             return HttpResponse(f'Error: {e}')
 
@@ -225,8 +249,15 @@ def ViewGig(request, id):
 
 
 def GigDelete(request, id):
-    gigdelete = models.GigDataModal.objects.filter(id=id).delete()
-    return HttpResponse('Gig deleted sucessfully')
+    try:
+        gig = models.GigDataModal.objects.get(id=id)
+        gig.gig_image1.delete(save=False)
+        gig.gig_image2.delete(save=False)
+        gig.gig_image3.delete(save=False)
+        gig.delete()
+        return redirect('main')
+    except models.GigDataModal.DoesNotExist:
+        return HttpResponse('Gig not found', status=404)
 
 def PaymentCard(request):
     return render(request,'Dashboard/TokenRelated/Payment.html')
