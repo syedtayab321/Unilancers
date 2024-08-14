@@ -21,5 +21,7 @@ from buyer import views
 urlpatterns = [
   path('buyerlogin/',views.buyerlogin, name="buyerlogin" ),
   path('signup/',views.buyersignup, name="signup"),
-  path('buyerdashboard/',views.buyerdashboard , name="buyerdashboard")
+  path('buyerdashboard/',views.buyerdashboard , name="buyerdashboard"),
+  path('add-project/', views.add_project, name='add_project'),
+  path('view-posted-projects/', views.view_posted_projects, name='view_posted_projects')
 ]

@@ -24,7 +24,11 @@ urlpatterns = [
     path('main',views.SellerDashboard,name='main'),
     path('logout',views.logout_view,name='logout'),
     path('projectdetails',views.ProjectDetails,name='projectdetails'),
+    path('projectdetailsadd', views.ProjectDetailsAdd, name='projectdetailsadd'),
     path('profile',views.Profile,name='profile'),
     path('tokenpage', views.TokenPage, name='tokenPage'),
+    path('paymentpage', views.PaymentCard, name='paymentpage'),
     path('gigcreate',views.CreateGig,name='gigcreate'),
+    path('viewgigs/<int:id>/',views.ViewGig,name='viewgigs'),
+    path('gigdelete/<int:id>/',views.GigDelete,name='gigdelete'),
 ]

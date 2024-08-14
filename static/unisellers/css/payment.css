@@ -1,0 +1,44 @@
+/* Background Color */
+.bg-light {
+    background-color: #f8f9fa;
+}
+
+/* Payment Card Styling */
+.card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+/* Card Header Styling */
+.card-header {
+    border-bottom: 2px solid #dee2e6;
+}
+
+/* Form Styling */
+.form-control {
+    border-radius: 5px;
+    box-shadow: none;
+    border: 1px solid #ced4da;
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+/* Input Field Styling */
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="month"] {
+    padding: 10px;
+}

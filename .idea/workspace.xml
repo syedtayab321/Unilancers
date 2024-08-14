@@ -4,39 +4,52 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4726bc5-77b9-47a1-abde-b6ed34229894" name="Changes" comment="" />
+    <list default="true" id="b71776db-b8b2-4252-bbee-a3e154d55245" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/DashboardComponents/gigs.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/DashboardComponents/gigs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ManageGigs/ViewGigsDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ManageGigs/ViewGigsDetails.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSeller/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/unisellers/css/maindashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/unisellers/css/maindashboard.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 6
+  &quot;associatedIndex&quot;: 2
 }</component>
-  <component name="ProjectId" id="2kUzEFUNjfNTQbxQpghQxFqSXYV" />
+  <component name="ProjectId" id="2kc9JhQUQXlJoKVVO0GhdmmCbl5" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/Project Unilancers/unilancers&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/Softwares/Xampp/htdocs/Project Unilancers/unilancers",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Softwares\Xampp\htdocs\Project Unilancers\unilancers\UniSeller\templates\Dashboard\TokenRelated" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="unilancers" type="Python.DjangoServer" factoryName="Django server">
       <module name="unilancers" />
@@ -74,16 +87,15 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b4726bc5-77b9-47a1-abde-b6ed34229894" name="Changes" comment="" />
-      <created>1723352830499</created>
+      <changelist id="b71776db-b8b2-4252-bbee-a3e154d55245" name="Changes" comment="" />
+      <created>1723571932114</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1723352830499</updated>
-      <workItem from="1723352831573" duration="2762000" />
-      <workItem from="1723390770220" duration="3484000" />
-      <workItem from="1723410030748" duration="2096000" />
-      <workItem from="1723427952982" duration="11689000" />
-      <workItem from="1723484400558" duration="1658000" />
+      <updated>1723571932114</updated>
+      <workItem from="1723571933272" duration="3200000" />
+      <workItem from="1723588439675" duration="737000" />
+      <workItem from="1723601190351" duration="7690000" />
+      <workItem from="1723655021270" duration="1012000" />
     </task>
     <servers />
   </component>

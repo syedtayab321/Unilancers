@@ -32,6 +32,9 @@
                             <a class="nav-link" id="orders-tab" data-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false">Active Projects</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" id="orders-tab" data-toggle="tab" href="#applied" role="tab" aria-controls="orders" aria-selected="false">Applied Projects</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" id="orders-tab" data-toggle="tab" href="#Gigs" role="tab" aria-controls="orders" aria-selected="false">Gigs</a>
                         </li>
                     </ul>
@@ -47,6 +50,9 @@
                          <!--project active projects -->
                         <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
                             {% include 'Dashboard/DashboardComponents/activeprojects.html' %}
+                        </div>
+                         <div class="tab-pane fade" id="applied" role="tabpanel" aria-labelledby="orders-tab">
+                            {% include 'Dashboard/DashboardComponents/appliedprojects.html' %}
                         </div>
                          <!--project gigs -->
                         <div class="tab-pane fade" id="Gigs" role="tabpanel" aria-labelledby="orders-tab">

@@ -3,6 +3,7 @@ from django.db import models
 # Create your models here.
 class SellerSignUpModal(models.Model):
     username = models.CharField(max_length=50)
+    profile_picture = models.FileField(upload_to='profile_pictures/')
     university_email = models.EmailField(max_length=100)
     mobile_no = models.CharField(max_length=50)
     university_name = models.CharField(max_length=100)
@@ -18,7 +19,7 @@ class SellerSignUpModal(models.Model):
 
 class ProjectAppliedModal(models.Model):
     project_name = models.CharField(max_length=50)
-    seller_id = models.IntegerField(max_length=100)
+    seller_id = models.IntegerField()
     project_price=models.IntegerField()
     project_tokens=models.IntegerField()
     Date_from=models.DateField()
@@ -34,10 +35,16 @@ class GigDataModal(models.Model):
     field = models.CharField(max_length=50)
     sub_field = models.CharField(max_length=50)
     description = models.CharField(max_length=500)
-    gig_price = models.IntegerField()
     gig_image1 = models.FileField(upload_to='gig_images/')
     gig_image2 = models.FileField(upload_to='gig_images/')
     gig_image3 = models.FileField(upload_to='gig_images/')
 
     def __str__(self):
         return self.field
+
+    def delete(self, *args, **kwargs):
+        # Delete the files from the file system
+        self.gig_image1.delete(save=False)
+        self.gig_image2.delete(save=False)
+        self.gig_image3.delete(save=False)
+        super().delete(*args, **kwargs)

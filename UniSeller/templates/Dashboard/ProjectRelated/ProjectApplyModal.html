@@ -1,59 +1,112 @@
-<div class="modal fade" id="exampleModal">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submission Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+/* Background Image Styling */
+.bg-image {
+    background-image: url('../../../../static/unisellers/images/app development.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Submission Form</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
+/* Card Styling */
+.card {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    border-radius: 10px;
+    padding: 20px;
+}
 
-      <!-- Modal Body -->
-      <div class="modal-body">
-        <form method="post" action={% url 'projectdetails' %}>
-            {% csrf_token %}
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="title">Project Name:</label>
-              <input type="text" class="form-control" id="title" placeholder="Enter title" name="project_name">
-            </div>
-            <div class="form-group">
-              <label for="username">Seller Id:</label>
-              <input type="text" class="form-control" id="username"  name="seller_id" value={{ sellerId }}>
-            </div>
-            <div class="form-group">
-              <label for="price">Price ($):</label>
-              <input type="number" class="form-control" id="price" placeholder="Enter price" min="0" step="5" name="project_price">
-            </div>
-            <div class="form-group">
-              <label for="token">Select Token:</label>
-              <select class="form-control" id="token" name="project_token">
-                <option>5</option>
-                <option>10</option>
-                <option>15</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="dateFrom">Date From:</label>
-              <input type="date" class="form-control" id="dateFrom" placeholder="Select date" name="date_from">
-            </div>
-            <div class="form-group">
-              <label for="dateTo">Date To:</label>
-              <input type="date" class="form-control" id="dateTo" placeholder="Select date" name="date_to" >
-            </div>
-            <div class="form-group">
-              <label for="coverLetter">Cover Letter:</label>
-              <textarea class="form-control" id="coverLetter" rows="4" placeholder="Enter cover letter" name="cover_letter"></textarea>
-            </div>
-          </div>
-            <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Submit Proposal</button>
-      </div>
-        </form>
-      </div>
-      
+/* Card Header Styling */
+.card-header {
+    border-bottom: 2px solid #dee2e6;
+}
 
+/* Button Styling */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-lg {
+    padding: 10px 20px;
+    font-size: 18px;
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Page Container -->
+    <div class="container-fluid bg-image">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10 col-sm-12">
+                    <!-- Form Card -->
+                    <div class="card shadow-lg">
+                        <div class="card-header text-center bg-primary text-white">
+                            <h4>Submission Form</h4>
+                        </div>
+                        <div class="card-body">
+                            <form method="post" action="{% url 'projectdetailsadd' %}">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="title">Project Name:</label>
+                                    <input type="text" class="form-control" id="title" placeholder="Enter title" name="project_name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="username">Seller Id:</label>
+                                    <input type="text" class="form-control" id="username" name="seller_id" readonly value="{{ request.session.sellerId }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="price">Price ($):</label>
+                                    <input type="number" class="form-control" id="price" placeholder="Enter price" min="10" step="5" name="project_price">
+                                </div>
+                                <div class="form-group">
+                                    <label for="token">Tokens (Optional):</label>
+                                    <input type="number" class="form-control" id="token" placeholder="Enter tokens" min="0" step="2" name="project_token">
+                                </div>
+                                <div class="form-group">
+                                    <label for="dateFrom">Date From:</label>
+                                    <input type="date" class="form-control" id="dateFrom" name="date_from">
+                                </div>
+                                <div class="form-group">
+                                    <label for="dateTo">Date To:</label>
+                                    <input type="date" class="form-control" id="dateTo" name="date_to">
+                                </div>
+                                <div class="form-group">
+                                    <label for="coverLetter">Cover Letter:</label>
+                                    <textarea class="form-control" id="coverLetter" rows="4" placeholder="Enter cover letter" name="cover_letter"></textarea>
+                                </div>
+                                <div class="form-group text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg">Submit Proposal</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="#" class="btn btn-secondary">Back to Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
+
+    <!-- JavaScript and Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,12 +1,16 @@
 from django.http import HttpResponse
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from UniSeller import models
 from django.core.mail import send_mail
 import random
 import string
+
+
 # Create your views here.
 def index(request):
-     return render(request,'index.html')
+    return render(request, 'index.html')
+
+
 #seller login related
 def SellerLogin(request):
     if request.method == "POST":
@@ -27,14 +31,18 @@ def SellerLogin(request):
             return HttpResponse(f'An error occurred: {str(e)}')
     return render(request, 'SellerLogin.html')
 
+
 #seller singup related
 def generate_verification_code(length=6):
     digits = string.digits
     return ''.join(random.choice(digits) for i in range(length))
+
+
 def SellerSignUp(request):
     if request.method == "POST":
         try:
             verification_code = generate_verification_code()
+            profile = request.FILES.get('profile')
             username = request.POST.get('username')
             university_email = request.POST.get('university_email')
             university_name = request.POST.get('university_name')
@@ -54,6 +62,7 @@ def SellerSignUp(request):
                 if password == confirm_password:
                     models.SellerSignUpModal.objects.create(
                         username=username,
+                        profile_picture=profile,
                         university_email=university_email,
                         university_name=university_name,
                         mobile_no=mobile_phone,
@@ -78,6 +87,7 @@ def SellerSignUp(request):
         except Exception as e:
             return HttpResponse(f"An error occurred: {e}")
     return render(request, 'sellerSignup.html')
+
 
 def confirmation(request):
     if request.method == 'POST':
@@ -107,68 +117,116 @@ def confirmation(request):
 
 
 def SellerDashboard(request):
-    gig_data=models.GigDataModal.objects.all()
-    return render(request, 'Dashboard/Main.html',{'data':gig_data})
+    gig_data = models.GigDataModal.objects.all()
+    applied_projects = models.ProjectAppliedModal.objects.all()
+    return render(request, 'Dashboard/Main.html', {'projectdata':applied_projects,'gigdata':gig_data})
 
 
 def logout_view(request):
     request.session.flush()  # Clear all session data
     return redirect('index')
 
-def ProjectDetails(request):
-    if request.method =='POST':
-          try:
-              project_name=request.POST.get('project_name')
-              seller_id=request.POST.get('seller_id')
-              project_price=request.POST.get('project_price')
-              project_token=request.POST.get('project_token')
-              date_from=request.POST.get('date_from')
-              date_to=request.POST.get('date_to')
-              cover_letter=request.POST.get('cover_letter')
-              models.ProjectAppliedModal.objects.create(
-                      project_name=project_name,
-                      seller_id=seller_id,
-                      project_price=project_price,
-                      project_tokens=project_token,
-                      Date_from=date_from,
-                      Date_to=date_to,
-                      cover_letter=cover_letter,
-                  )
-              return render(request,'Dashboard/main.html')
-          except Exception as e:
-              return HttpResponse(e)
-    return render(request,'Dashboard/ProjectRelated/ProjectDetails.html')
 
+def ProjectDetails(request):
+     return render(request, 'Dashboard/ProjectRelated/ProjectDetails.html')
+
+def ProjectDetailsAdd(request):
+    if request.method == 'POST':
+            project_name = request.POST.get('project_name')
+            seller_id = request.POST.get('seller_id')
+            project_price = request.POST.get('project_price')
+            project_token = request.POST.get('project_token')
+            date_from = request.POST.get('date_from')
+            date_to = request.POST.get('date_to')
+            cover_letter = request.POST.get('cover_letter')
+            try:
+                models.ProjectAppliedModal.objects.create(
+                    project_name=project_name,
+                    seller_id=seller_id,
+                    project_price=project_price,
+                    project_tokens=project_token,
+                    Date_from=date_from,
+                    Date_to=date_to,
+                    cover_letter=cover_letter,
+                )
+                return render(request,'Dashboard/ProjectRelated/ProjectDetails.html')
+            except Exception as e:
+                return HttpResponse(e)
+    return render(request, 'Dashboard/ProjectRelated/ProjectApplyModal.html')
 def Profile(request):
-    return render(request,'Dashboard/ProfileUpdate.html')
+    if request.method == "POST":
+        profile_picture = request.FILES.get('image')
+        username = request.POST.get('username')
+        university_email = request.POST.get('university_email')
+        university_name = request.POST.get('university_name')
+        mobile_phone = request.POST.get('mobile_phone')
+        university_reg_no = request.POST.get('university_reg_no')
+        study_field = request.POST.get('field_of_study')
+        skills = request.POST.get('skills')
+        try:
+            models.SellerSignUpModal.objects.filter(university_email=university_email).update(
+                username=username,
+                profile_picture=profile_picture,
+                university_email=university_email,
+                university_name=university_name,
+                mobile_no=mobile_phone,
+                registration_number=university_reg_no,
+                study_field=study_field,
+                skills=skills,
+            )
+            email = request.session['email']
+            userdata = models.SellerSignUpModal.objects.get(university_email=email)
+            return render(request, 'Dashboard/ProfileUpdate.html', {'userdata': userdata})
+        except Exception as e:
+            return HttpResponse(e)
+    email = request.session['email']
+    userdata = models.SellerSignUpModal.objects.get(university_email=email)
+    return render(request, 'Dashboard/ProfileUpdate.html', {'userdata': userdata})
+
 
 def TokenPage(request):
-    return render(request,'Dashboard/BidTokens.html')
+    return render(request, 'Dashboard/TokenRelated/BidTokens.html')
+
 
 def CreateGig(request):
     if request.method == 'POST':
+        # Retrieve form data
         sellerId = request.POST.get('SellerId')
         gig_title = request.POST.get('gigTitle')
         gig_field = request.POST.get('gigField')
         gig_subfield = request.POST.get('gigSubField')
         gig_description = request.POST.get('gigDescription')
-        gig_price = request.POST.get('gigPrice')
         gig_image1 = request.FILES.get('gigImage1')
         gig_image2 = request.FILES.get('gigImage2')
         gig_image3 = request.FILES.get('gigImage3')
+
         try:
-            user=models.GigDataModal.objects.create(
+            # Create a new GigDataModal instance
+            new_gig = models.GigDataModal.objects.create(
                 seller_id=sellerId,
                 gig_title=gig_title,
                 field=gig_field,
                 sub_field=gig_subfield,
                 description=gig_description,
-                gig_price=gig_price,
                 gig_image1=gig_image1,
                 gig_image2=gig_image2,
                 gig_image3=gig_image3,
             )
-            return HttpResponse('sucessfully register data')
+            return HttpResponse('Successfully registered data')
         except Exception as e:
-            return HttpResponse(e)
-    return render(request,'Dashboard/ManageGigs/CreateGig.html')
+            return HttpResponse(f'Error: {e}')
+
+    return render(request, 'Dashboard/ManageGigs/CreateGig.html')
+
+
+def ViewGig(request, id):
+    gigdata = models.GigDataModal.objects.get(id=id)
+    return render(request, 'Dashboard/ManageGigs/ViewGigsDetails.html', {'gigdata': gigdata})
+
+
+def GigDelete(request, id):
+    gigdelete = models.GigDataModal.objects.filter(id=id).delete()
+    return HttpResponse('Gig deleted sucessfully')
+
+def PaymentCard(request):
+    return render(request,'Dashboard/TokenRelated/Payment.html')
