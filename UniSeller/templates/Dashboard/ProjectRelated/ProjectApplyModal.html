@@ -59,12 +59,12 @@
                             <h4>Submission Form</h4>
                         </div>
                         <div class="card-body">
-                            <form method="post" action="{% url 'projectdetailsadd' %}">
+                            <form method="post" action="{% url 'projectdetailsadd' data.project_name %}">
                                 {% csrf_token %}
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="title">Project Name:</label>
-                                        <input type="text" class="form-control" id="title" name="project_name" readonly>
+                                        <input type="text" class="form-control" id="title" name="project_name" readonly value="{{ data.project_name }}">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="username">Seller Id:</label>
@@ -73,8 +73,8 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="postedby">Posted By:</label>
-                                        <input type="text" class="form-control" id="postedby" name="postedby" readonly>
+                                        <label for="postedby">Posted By(user Id):</label>
+                                        <input type="text" class="form-control" id="postedby" name="postedby" readonly value="{{ data.userid }}">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="price">Price ($):</label>

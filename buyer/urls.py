@@ -23,5 +23,6 @@ urlpatterns = [
   path('signup/',views.buyersignup, name="signup"),
   path('buyerdashboard/',views.buyerdashboard , name="buyerdashboard"),
   path('add-project/', views.add_project, name='add_project'),
-  path('view-posted-projects/', views.view_posted_projects, name='view_posted_projects')
+  path('view-posted-projects/', views.view_posted_projects, name='view_posted_projects'),
+  path('buyerlogout/', views.logout_view, name='buyerlogout'),
 ]

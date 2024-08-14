@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.urls import reverse
 from buyer import models
+from UniSeller import models as sellermodel
 # Create your views here.
 def buyerlogin(request):
     if request.method == 'POST':
@@ -37,7 +38,8 @@ def buyersignup(request):
         return render(request,'buyersignup.html') 
 
 def buyerdashboard(request):
-    return render(request, 'buyerdashboard.html')  # Render the dashboard template
+    data=sellermodel.ProjectAppliedModal.objects.all()
+    return render(request, 'buyerdashboard.html',{'data':data})  # Render the dashboard template
 
 def add_project(request):
     if request.method == 'POST':
@@ -70,3 +72,7 @@ def view_posted_projects(request):
     # Assuming you have a Project model that stores the project data
     projects = models.Project.objects.all  # Fetch projects created by the logged-in user
     return render(request, 'view_posted_projects.html', {'projects': projects})
+
+def logout_view(request):
+    request.session.flush()  # Clear all session data
+    return redirect('index')

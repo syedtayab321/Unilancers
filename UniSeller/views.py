@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from UniSeller import models
+from buyer import  models as buyer_models
 from django.core.mail import send_mail
 import random
 import string
@@ -122,7 +123,8 @@ def confirmation(request):
 def SellerDashboard(request):
     gig_data = models.GigDataModal.objects.all()
     applied_projects = models.ProjectAppliedModal.objects.all()
-    return render(request, 'Dashboard/Main.html', {'projectdata':applied_projects,'gigdata':gig_data})
+    posted_project=buyer_models.Project.objects.all()
+    return render(request, 'Dashboard/Main.html', {'projectdata':applied_projects,'gigdata':gig_data,'PostedProjects':posted_project})
 
 
 def logout_view(request):
@@ -130,13 +132,15 @@ def logout_view(request):
     return redirect('index')
 
 
-def ProjectDetails(request):
-     return render(request, 'Dashboard/ProjectRelated/ProjectDetails.html')
+def ProjectDetails(request,projectname):
+     data=buyer_models.Project.objects.get(project_name=projectname)
+     return render(request, 'Dashboard/ProjectRelated/ProjectDetails.html',{'data':data})
 
-def ProjectDetailsAdd(request):
+def ProjectDetailsAdd(request,projectname):
+    data = buyer_models.Project.objects.get(project_name=projectname)
     if request.method == 'POST':
-            project_name = request.POST.get('project_name')
-            posted_by=request.POST.get('posted_by')
+            project_name = data.project_name
+            posted_by=data.userid
             seller_id = request.POST.get('seller_id')
             project_price = request.POST.get('project_price')
             project_token = request.POST.get('project_token')
@@ -157,7 +161,7 @@ def ProjectDetailsAdd(request):
                 return HttpResponse('Project Applied Successfully')
             except Exception as e:
                 return HttpResponse(e)
-    return render(request, 'Dashboard/ProjectRelated/ProjectApplyModal.html')
+    return render(request, 'Dashboard/ProjectRelated/ProjectApplyModal.html',{'data':data})
 
 
 def Profile(request):

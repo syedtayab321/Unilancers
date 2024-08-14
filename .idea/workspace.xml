@@ -6,26 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="b71776db-b8b2-4252-bbee-a3e154d55245" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/DashboardComponents/Projectcard.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/DashboardComponents/Projectcard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/ProjectApplyModal.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/ProjectApplyModal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/ProjectDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/ProjectDetails.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSeller/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UniSeller/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gig_images/Screenshot_2024-08-07_165137.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gig_images/image1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gig_images/image1_gwUdjFX.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gig_images/image1_hS1fx0n.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gig_images/image1_ww7ykQ7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gig_images/image2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gig_images/image2_LP45PfO.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gig_images/image2_WES5eto.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gig_images/image2_h5Nc3p5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gig_images/image2_zhRwGmj.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gig_images/image3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gig_images/image3_9KPhUJG.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gig_images/image3_AKwLlbq.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gig_images/image3_dQfAAqT.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gig_images/image3_qlMk6Si.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unilancers/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/unilancers/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buyer/templates/buyerdashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/buyer/templates/buyerdashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buyer/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/buyer/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buyer/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/buyer/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/buyer/css/buyerdashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/buyer/css/buyerdashboard.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +39,7 @@
   "keyToString": {
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "django.template.preview.state": "SHOW_EDITOR",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "D:/Softwares/Xampp/htdocs/Project Unilancers/unilancers",
     "node.js.detected.package.eslint": "true",
@@ -111,7 +101,7 @@
       <workItem from="1723571933272" duration="3200000" />
       <workItem from="1723588439675" duration="737000" />
       <workItem from="1723601190351" duration="7690000" />
-      <workItem from="1723655021270" duration="8049000" />
+      <workItem from="1723655021270" duration="12536000" />
     </task>
     <servers />
   </component>

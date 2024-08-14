@@ -39,13 +39,59 @@ body {
     background-color: #495057;
     color: white;
 }
-
+.humburgericon{
+    width: 56px;
+    height: 40px;
+    background-color: #010447;
+    border-radius: 4px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 4px;
+    z-index: 1;
+}
+.humburgericon .line{
+    width: 80%;
+    height: 4px;
+    background-color: white;
+    border-radius: 20px;
+}
 .main-content {
     margin-left: 250px; /* Margin to make space for the fixed sidebar */
     padding: 20px;
     width: calc(100% - 250px); /* Full width minus the sidebar */
     overflow-y: auto; /* Scrollable content */
 }
+@media (max-width: 767px) {
+    .sidebar{
+        display: none; /* Hide by default */
+    position: fixed; /* Make sure the sidebar stays fixed */
+    left: 0;
+    top: 0;
+    width: 250px; /* Adjust width as needed */
+    height: 100%;
+    background-color: #333; /* Background color of sidebar */
+    transition: transform 1.3s ease; /* Smooth transition for sliding in */
+    transform: translateX(-100%);
+        z-index: 1;
+    }
+    .humburgericon{
+        display: flex;
+    }
+    .show{
+        display: block; /* Make it visible */
+     transform: translateX(0);
+    }
+    .main-content{
+        width: 100%;
+        margin-left: 0px;
+    }
+}
+
 
 header {
     background-color: #cd1ee0ac;
