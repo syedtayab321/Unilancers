@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from UniSeller import models
 from django.core.mail import send_mail
 import random
@@ -118,7 +118,8 @@ def confirmation(request):
 
 def SellerDashboard(request):
     gig_data = models.GigDataModal.objects.all()
-    return render(request, 'Dashboard/Main.html', {'data': gig_data})
+    applied_projects = models.ProjectAppliedModal.objects.all()
+    return render(request, 'Dashboard/Main.html', {'projectdata':applied_projects,'gigdata':gig_data})
 
 
 def logout_view(request):
@@ -128,7 +129,6 @@ def logout_view(request):
 
 def ProjectDetails(request):
     if request.method == 'POST':
-        try:
             project_name = request.POST.get('project_name')
             seller_id = request.POST.get('seller_id')
             project_price = request.POST.get('project_price')
@@ -136,19 +136,21 @@ def ProjectDetails(request):
             date_from = request.POST.get('date_from')
             date_to = request.POST.get('date_to')
             cover_letter = request.POST.get('cover_letter')
-            models.ProjectAppliedModal.objects.create(
-                project_name=project_name,
-                seller_id=seller_id,
-                project_price=project_price,
-                project_tokens=project_token,
-                Date_from=date_from,
-                Date_to=date_to,
-                cover_letter=cover_letter,
-            )
-            return render(request, 'Dashboard/main.html')
-        except Exception as e:
-            return HttpResponse(e)
-    return render(request, 'Dashboard/ProjectRelated/ProjectDetails.html')
+            try:
+                models.ProjectAppliedModal.objects.create(
+                    project_name=project_name,
+                    seller_id=seller_id,
+                    project_price=project_price,
+                    project_tokens=project_token,
+                    Date_from=date_from,
+                    Date_to=date_to,
+                    cover_letter=cover_letter,
+                )
+                return redirect('main')
+            except Exception as e:
+                return HttpResponse(e)
+    else:
+     return render(request, 'Dashboard/ProjectRelated/ProjectDetails.html')
 
 
 def Profile(request):
@@ -188,6 +190,7 @@ def TokenPage(request):
 
 def CreateGig(request):
     if request.method == 'POST':
+        # Retrieve form data
         sellerId = request.POST.get('SellerId')
         gig_title = request.POST.get('gigTitle')
         gig_field = request.POST.get('gigField')
@@ -196,9 +199,14 @@ def CreateGig(request):
         gig_image1 = request.FILES.get('gigImage1')
         gig_image2 = request.FILES.get('gigImage2')
         gig_image3 = request.FILES.get('gigImage3')
+
         try:
-            user = models.GigDataModal.objects.create(
-                seller_id=sellerId,
+            # Retrieve the SellerSignUpModal instance
+            seller=models.SellerSignUpModal.objects.get(id=sellerId)
+
+            # Create a new GigDataModal instance
+            new_gig = models.GigDataModal.objects.create(
+                seller_id=seller,  # Pass the SellerSignUpModal instance
                 gig_title=gig_title,
                 field=gig_field,
                 sub_field=gig_subfield,
@@ -207,9 +215,10 @@ def CreateGig(request):
                 gig_image2=gig_image2,
                 gig_image3=gig_image3,
             )
-            return HttpResponse('sucessfully register data')
+            return HttpResponse('Successfully registered data')
         except Exception as e:
-            return HttpResponse(e)
+            return HttpResponse(f'Error: {e}')
+
     return render(request, 'Dashboard/ManageGigs/CreateGig.html')
 
 

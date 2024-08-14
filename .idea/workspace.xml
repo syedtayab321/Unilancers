@@ -4,28 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4726bc5-77b9-47a1-abde-b6ed34229894" name="Changes" comment="">
+    <list default="true" id="b71776db-b8b2-4252-bbee-a3e154d55245" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/unilancers.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/unilancers.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/migrations/0002_projectappliedmodal.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/migrations/0003_gigdatamodal.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/migrations/0004_alter_gigdatamodal_gig_image1_and_more.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/UniSeller/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/DashboardComponents/Projectcard.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/DashboardComponents/Projectcard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ManageGigs/CreateGig.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ManageGigs/CreateGig.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ManageGigs/ViewGigsDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ManageGigs/ViewGigsDetails.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProfileUpdate.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProfileUpdate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/ProjectApplyModal.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/ProjectApplyModal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/ProjectDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/ProjectDetails.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/sellerSignup.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/sellerSignup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/DashboardComponents/appliedprojects.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/DashboardComponents/appliedprojects.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/DashboardComponents/gigs.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/DashboardComponents/gigs.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UniSeller/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gig_images/White_and_Gradient_Blue_Online_Doctor_Consultations__Medicine_Purchase_Mobile_CJEHLFZ.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gig_images/White_and_Gradient_Blue_Online_Doctor_Consultations__Medicine_Purchase_Mobile_HsGlTdM.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gig_images/White_and_Gradient_Blue_Online_Doctor_Consultations__Medicine_Purchase_Mobile_M76zPTe.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gig_images/White_and_Gradient_Blue_Online_Doctor_Consultations__Medicine_Purchase_Mobile_gmx3PFX.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gig_images/White_and_Gradient_Blue_Online_Doctor_Consultations__Medicine_Purchase_Mobile_nuey2ko.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/gig_images/White_and_Gradient_Blue_Online_Doctor_Consultations__Medicine_Purchase_Mobile_sjqGpPi.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/unisellers/css/maindashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/unisellers/css/maindashboard.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,10 +21,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 6
+  &quot;associatedIndex&quot;: 2
 }</component>
-  <component name="ProjectId" id="2kUzEFUNjfNTQbxQpghQxFqSXYV" />
+  <component name="ProjectId" id="2kc9JhQUQXlJoKVVO0GhdmmCbl5" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -48,9 +32,8 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/Project Unilancers/unilancers&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Softwares/Xampp/htdocs/Project Unilancers/unilancers&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -96,18 +79,14 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b4726bc5-77b9-47a1-abde-b6ed34229894" name="Changes" comment="" />
-      <created>1723352830499</created>
+      <changelist id="b71776db-b8b2-4252-bbee-a3e154d55245" name="Changes" comment="" />
+      <created>1723571932114</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1723352830499</updated>
-      <workItem from="1723352831573" duration="2762000" />
-      <workItem from="1723390770220" duration="3484000" />
-      <workItem from="1723410030748" duration="2096000" />
-      <workItem from="1723427952982" duration="11689000" />
-      <workItem from="1723484400558" duration="3101000" />
-      <workItem from="1723492726443" duration="5078000" />
-      <workItem from="1723516478393" duration="9509000" />
+      <updated>1723571932114</updated>
+      <workItem from="1723571933272" duration="3200000" />
+      <workItem from="1723588439675" duration="737000" />
+      <workItem from="1723601190351" duration="2549000" />
     </task>
     <servers />
   </component>

@@ -19,7 +19,7 @@ class SellerSignUpModal(models.Model):
 
 class ProjectAppliedModal(models.Model):
     project_name = models.CharField(max_length=50)
-    seller_id = models.IntegerField(max_length=100)
+    seller_id = models.IntegerField()
     project_price=models.IntegerField()
     project_tokens=models.IntegerField()
     Date_from=models.DateField()
