@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.db import models
 
 # Create your models here.
@@ -19,11 +21,13 @@ class SellerSignUpModal(models.Model):
 
 class ProjectAppliedModal(models.Model):
     project_name = models.CharField(max_length=50)
+    posted_by = models.CharField(max_length=50,default='noone')
     seller_id = models.IntegerField()
     project_price=models.IntegerField()
     project_tokens=models.IntegerField()
     Date_from=models.DateField()
     Date_to=models.DateField()
+    applied_date=models.DateField(default=date.today)
     cover_letter=models.CharField(max_length=500)
 
     def __str__(self):

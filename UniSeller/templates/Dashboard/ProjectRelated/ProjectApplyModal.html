@@ -6,45 +6,44 @@
     <title>Submission Form</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-/* Background Image Styling */
-.bg-image {
-    background-image: url('../../../../static/unisellers/images/app development.jpg');
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        /* Background Image Styling */
+        .bg-image {
+            background-image: url('../../../../static/unisellers/images/web.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-/* Card Styling */
-.card {
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
-    border-radius: 10px;
-    padding: 20px;
-}
+        /* Card Styling */
+        .card {
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+            border-radius: 10px;
+            padding: 20px;
+        }
 
-/* Card Header Styling */
-.card-header {
-    border-bottom: 2px solid #dee2e6;
-}
+        /* Card Header Styling */
+        .card-header {
+            border-bottom: 2px solid #dee2e6;
+        }
 
-/* Button Styling */
-.btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-}
+        /* Button Styling */
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
 
-.btn-secondary {
-    background-color: #6c757d;
-    border-color: #6c757d;
-}
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
 
-.btn-lg {
-    padding: 10px 20px;
-    font-size: 18px;
-}
-
+        .btn-lg {
+            padding: 10px 20px;
+            font-size: 18px;
+        }
 
     </style>
 </head>
@@ -62,29 +61,44 @@
                         <div class="card-body">
                             <form method="post" action="{% url 'projectdetailsadd' %}">
                                 {% csrf_token %}
-                                <div class="form-group">
-                                    <label for="title">Project Name:</label>
-                                    <input type="text" class="form-control" id="title" placeholder="Enter title" name="project_name">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="title">Project Name:</label>
+                                        <input type="text" class="form-control" id="title" name="project_name" readonly>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="username">Seller Id:</label>
+                                        <input type="text" class="form-control" id="username" name="seller_id" readonly value="{{ request.session.sellerId }}">
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="username">Seller Id:</label>
-                                    <input type="text" class="form-control" id="username" name="seller_id" readonly value="{{ request.session.sellerId }}">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="postedby">Posted By:</label>
+                                        <input type="text" class="form-control" id="postedby" name="postedby" readonly>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="price">Price ($):</label>
+                                        <input type="number" class="form-control" id="price" placeholder="Enter price" min="10" step="5" name="project_price">
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="price">Price ($):</label>
-                                    <input type="number" class="form-control" id="price" placeholder="Enter price" min="10" step="5" name="project_price">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="token">Tokens (Optional):</label>
+                                        <input type="number" class="form-control" id="token" placeholder="Enter tokens" min="0" step="2" name="project_token">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="dateFrom">Date From:</label>
+                                        <input type="date" class="form-control" id="dateFrom" name="date_from">
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="token">Tokens (Optional):</label>
-                                    <input type="number" class="form-control" id="token" placeholder="Enter tokens" min="0" step="2" name="project_token">
-                                </div>
-                                <div class="form-group">
-                                    <label for="dateFrom">Date From:</label>
-                                    <input type="date" class="form-control" id="dateFrom" name="date_from">
-                                </div>
-                                <div class="form-group">
-                                    <label for="dateTo">Date To:</label>
-                                    <input type="date" class="form-control" id="dateTo" name="date_to">
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="dateTo">Date To:</label>
+                                        <input type="date" class="form-control" id="dateTo" name="date_to">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <!-- This empty column helps maintain grid alignment -->
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="coverLetter">Cover Letter:</label>
