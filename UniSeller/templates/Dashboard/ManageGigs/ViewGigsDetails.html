@@ -118,12 +118,13 @@
         <p class="gig-description">
             {{ gigdata.description }}
         </p>
-        <div class="gig-price">
-            Price: {{ gigdata.gig_price }}
-        </div>
     </div>
-
+ <!-- Divider -->
+    <div class="divider"></div>
     <!-- Social Media Share Icons -->
+    <div class="gig-price">
+            Share On:
+        </div>
     <div class="social-share">
         <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank" class="btn btn-facebook">
             <i class="fab fa-facebook-f"></i>

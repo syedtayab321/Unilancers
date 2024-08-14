@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b71776db-b8b2-4252-bbee-a3e154d55245" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/BidTokens.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/TokenRelated/BidTokens.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/DashboardComponents/gigs.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/DashboardComponents/gigs.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ManageGigs/ViewGigsDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ManageGigs/ViewGigsDetails.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/ProjectApplyModal.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/ProjectApplyModal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/ProjectDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/ProjectDetails.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UniSeller/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/unisellers/css/maindashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/unisellers/css/maindashboard.css" afterDir="false" />
     </list>
@@ -18,6 +15,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,20 +30,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Softwares/Xampp/htdocs/Project Unilancers/unilancers&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/Softwares/Xampp/htdocs/Project Unilancers/unilancers",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Softwares\Xampp\htdocs\Project Unilancers\unilancers\UniSeller\templates\Dashboard\TokenRelated" />
@@ -93,7 +94,8 @@
       <updated>1723571932114</updated>
       <workItem from="1723571933272" duration="3200000" />
       <workItem from="1723588439675" duration="737000" />
-      <workItem from="1723601190351" duration="4830000" />
+      <workItem from="1723601190351" duration="7690000" />
+      <workItem from="1723655021270" duration="1012000" />
     </task>
     <servers />
   </component>

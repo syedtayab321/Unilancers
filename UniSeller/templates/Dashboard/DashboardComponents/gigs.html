@@ -6,11 +6,10 @@
             <img src="{{ fields.gig_image1.url }}" alt="Gig Image" class="gig-image">
             <div class="gig-details">
                 <h3 class="gig-title">Title: {{ fields.gig_title }}</h3>
-                <p class="gig-field">Field: {{ fields.field }}</p>
-                <p class="gig-sub-field">SubField: {{ fields.sub_field }}</p>
-                <p class="gig-sub-field">Price: {{ fields.gig_price }}</p>
-                <a class="btn btn-primary" href="{% url 'viewgigs' fields.id %}" target="_blank">View Details</a>
-                <a class="btn btn-danger" href="{% url 'gigdelete' fields.id %}" target="_blank">Delete</a>
+                 <p class="gig-field"><strong>Field:</strong>  {{ fields.field }}</p>
+                 <p class="gig-sub-field"><strong>SubField:</strong>  {{ fields.sub_field }}</p>
+                 <a class="btn btn-primary" href="{% url 'viewgigs' fields.id %}" target="_blank">View Details</a>
+                 <a class="btn btn-danger" href="{% url 'gigdelete' fields.id %}" target="_blank">Delete</a>
             </div>
         </div>
         <div class="gig-controls">

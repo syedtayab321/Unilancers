@@ -201,12 +201,9 @@ def CreateGig(request):
         gig_image3 = request.FILES.get('gigImage3')
 
         try:
-            # Retrieve the SellerSignUpModal instance
-            seller=models.SellerSignUpModal.objects.get(id=sellerId)
-
             # Create a new GigDataModal instance
             new_gig = models.GigDataModal.objects.create(
-                seller_id=seller,  # Pass the SellerSignUpModal instance
+                seller_id=sellerId,
                 gig_title=gig_title,
                 field=gig_field,
                 sub_field=gig_subfield,
