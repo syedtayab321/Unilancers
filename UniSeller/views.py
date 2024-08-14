@@ -128,6 +128,9 @@ def logout_view(request):
 
 
 def ProjectDetails(request):
+     return render(request, 'Dashboard/ProjectRelated/ProjectDetails.html')
+
+def ProjectDetailsAdd(request):
     if request.method == 'POST':
             project_name = request.POST.get('project_name')
             seller_id = request.POST.get('seller_id')
@@ -146,13 +149,10 @@ def ProjectDetails(request):
                     Date_to=date_to,
                     cover_letter=cover_letter,
                 )
-                return redirect('main')
+                return render(request,'Dashboard/ProjectRelated/ProjectDetails.html')
             except Exception as e:
                 return HttpResponse(e)
-    else:
-     return render(request, 'Dashboard/ProjectRelated/ProjectDetails.html')
-
-
+    return render(request, 'Dashboard/ProjectRelated/ProjectApplyModal.html')
 def Profile(request):
     if request.method == "POST":
         profile_picture = request.FILES.get('image')
@@ -185,7 +185,7 @@ def Profile(request):
 
 
 def TokenPage(request):
-    return render(request, 'Dashboard/BidTokens.html')
+    return render(request, 'Dashboard/TokenRelated/BidTokens.html')
 
 
 def CreateGig(request):
@@ -230,3 +230,6 @@ def ViewGig(request, id):
 def GigDelete(request, id):
     gigdelete = models.GigDataModal.objects.filter(id=id).delete()
     return HttpResponse('Gig deleted sucessfully')
+
+def PaymentCard(request):
+    return render(request,'Dashboard/TokenRelated/Payment.html')

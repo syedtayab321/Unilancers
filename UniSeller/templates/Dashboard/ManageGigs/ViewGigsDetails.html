@@ -12,11 +12,16 @@
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
     />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
     <style>
         body {
             background-color: #f8f9fa;
             font-family: 'Poppins', sans-serif;
             height: fit-content;
+            padding: 20px;
         }
         .card {
             border: none;
@@ -51,20 +56,39 @@
         .container {
             margin-top: 50px;
         }
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-        }
-        .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #004085;
-        }
         .divider {
             border-top: 2px solid #e9ecef;
             margin: 40px 0;
         }
-        .card-deck .card {
-            margin-bottom: 20px;
+        .social-share {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .social-share .btn {
+            font-size: 20px;
+            margin: 5px;
+            padding: 10px 15px;
+            border-radius: 50%;
+            color: #fff;
+            text-decoration: none;
+        }
+        .btn-facebook {
+            background-color: #3b5998;
+        }
+        .btn-facebook:hover {
+            background-color: #2d4373;
+        }
+        .btn-twitter {
+            background-color: #1da1f2;
+        }
+        .btn-twitter:hover {
+            background-color: #0d95e8;
+        }
+        .btn-whatsapp {
+            background-color: #25D366;
+        }
+        .btn-whatsapp:hover {
+            background-color: #1da25a;
         }
     </style>
 </head>
@@ -94,6 +118,22 @@
         <p class="gig-description">
             {{ gigdata.description }}
         </p>
+        <div class="gig-price">
+            Price: {{ gigdata.gig_price }}
+        </div>
+    </div>
+
+    <!-- Social Media Share Icons -->
+    <div class="social-share">
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank" class="btn btn-facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}" target="_blank" class="btn btn-twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://wa.me/?text={{ request.build_absolute_uri }}" target="_blank" class="btn btn-whatsapp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
     </div>
 
     <!-- Bootstrap JS and dependencies -->

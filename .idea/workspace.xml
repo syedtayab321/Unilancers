@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b71776db-b8b2-4252-bbee-a3e154d55245" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/unilancers.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/unilancers.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/DashboardComponents/appliedprojects.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/DashboardComponents/appliedprojects.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/DashboardComponents/gigs.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/DashboardComponents/gigs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/BidTokens.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/TokenRelated/BidTokens.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ManageGigs/ViewGigsDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ManageGigs/ViewGigsDetails.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/ProjectApplyModal.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/ProjectApplyModal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/ProjectDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/ProjectDetails.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSeller/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UniSeller/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/unisellers/css/maindashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/unisellers/css/maindashboard.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +44,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Softwares\Xampp\htdocs\Project Unilancers\unilancers\UniSeller\templates\Dashboard\TokenRelated" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="unilancers" type="Python.DjangoServer" factoryName="Django server">
       <module name="unilancers" />
@@ -86,7 +93,7 @@
       <updated>1723571932114</updated>
       <workItem from="1723571933272" duration="3200000" />
       <workItem from="1723588439675" duration="737000" />
-      <workItem from="1723601190351" duration="2549000" />
+      <workItem from="1723601190351" duration="4830000" />
     </task>
     <servers />
   </component>
