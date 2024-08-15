@@ -276,3 +276,41 @@ table tbody tr:hover {
     font-size: 12px;
     margin-top: 5px;
 }
+.table-container {
+            margin: 30px auto;
+            max-width: 1200px;
+        }
+        .table thead th {
+            background-color: #007bff;
+            color: #ffffff;
+            text-align: center;
+        }
+        .table tbody tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+        .table tbody tr:hover {
+            background-color: #e2e6ea;
+        }
+        .table td {
+            vertical-align: middle;
+            text-align: center;
+        }
+        .status-cell {
+            font-weight: bold;
+            color: #ffffff;
+            padding: 5px;
+            border-radius: 4px;
+        }
+        .status-pending {
+            background-color: #ffc107;
+        }
+        .status-approved {
+            background-color: #28a745;
+        }
+        .status-rejected {
+            background-color: #dc3545;
+        }
+        .empty-row td {
+            text-align: center;
+            color: #6c757d;
+        }

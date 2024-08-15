@@ -1,0 +1,27 @@
+<section id="add-project">
+                <h2>Add Project</h2>
+                <form action="{% url 'add_project' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="projectName">Project Name</label>
+                        <input type="text" class="form-control" id="projectName" name="project_name" placeholder="Enter project name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectDescription">Project Description</label>
+                        <textarea class="form-control" id="projectDescription" name="project_description" rows="4" placeholder="Enter project description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectRequirements">Project Requirements</label>
+                        <textarea class="form-control" id="projectRequirements" name="project_requirements" rows="4" placeholder="List the project requirements" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectBudget">Budget</label>
+                        <input type="number" class="form-control" id="projectBudget" name="project_budget" placeholder="Enter project budget" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectDeadline">Deadline</label>
+                        <input type="date" class="form-control" id="projectDeadline" name="project_deadline" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Project</button>
+                </form>
+            </section>

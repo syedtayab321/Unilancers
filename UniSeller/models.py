@@ -28,7 +28,8 @@ class ProjectAppliedModal(models.Model):
     Date_from=models.DateField()
     Date_to=models.DateField()
     applied_date=models.DateField(default=date.today)
-    cover_letter=models.CharField(max_length=500)
+    cover_letter=models.CharField(max_length=5000)
+    status=models.CharField(max_length=50,default='pending')
 
     def __str__(self):
         return self.project_name
@@ -38,7 +39,7 @@ class GigDataModal(models.Model):
     gig_title = models.CharField(max_length=50)
     field = models.CharField(max_length=50)
     sub_field = models.CharField(max_length=50)
-    description = models.CharField(max_length=500)
+    description = models.CharField(max_length=5000)
     gig_image1 = models.FileField(upload_to='gig_images/')
     gig_image2 = models.FileField(upload_to='gig_images/')
     gig_image3 = models.FileField(upload_to='gig_images/')

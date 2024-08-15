@@ -1,0 +1,14 @@
+<section id="profile">
+                <h2>Profile</h2>
+                <div class="card">
+                    <div class="card-header">
+                        User Profile
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Username:</strong> {{ request.session.username }}</p>
+                        <p><strong>Email:</strong> {{ request.session.email }}</p>
+                        <p><strong>User ID:</strong> {{ request.session.userid }}</p>
+                    </div>
+                     <a class="btn btn-primary">Update</a>
+                </div>
+            </section>

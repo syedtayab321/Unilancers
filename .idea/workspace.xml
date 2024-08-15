@@ -6,15 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="b71776db-b8b2-4252-bbee-a3e154d55245" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/DashboardComponents/Projectcard.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/DashboardComponents/Projectcard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/ProjectApplyModal.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/ProjectApplyModal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/ProjectDetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/ProjectRelated/ProjectDetails.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSeller/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UniSeller/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buyer/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/buyer/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buyer/templates/Components/logout.html" beforeDir="false" afterPath="$PROJECT_DIR$/buyer/templates/Components/logout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/buyer/templates/buyerdashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/buyer/templates/buyerdashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buyer/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/buyer/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/buyer/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/buyer/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/buyer/css/buyerdashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/buyer/css/buyerdashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unilancers/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/unilancers/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,22 +33,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "django.template.preview.state": "SHOW_EDITOR",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Softwares/Xampp/htdocs/Project Unilancers/unilancers",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Softwares/Xampp/htdocs/Project Unilancers/unilancers&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Softwares\Xampp\htdocs\Project Unilancers\unilancers\UniSeller\templates\Dashboard\TokenRelated" />
@@ -101,7 +99,8 @@
       <workItem from="1723571933272" duration="3200000" />
       <workItem from="1723588439675" duration="737000" />
       <workItem from="1723601190351" duration="7690000" />
-      <workItem from="1723655021270" duration="12536000" />
+      <workItem from="1723655021270" duration="13171000" />
+      <workItem from="1723684971555" duration="6536000" />
     </task>
     <servers />
   </component>

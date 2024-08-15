@@ -157,6 +157,7 @@ def ProjectDetailsAdd(request,projectname):
                     Date_from=date_from,
                     Date_to=date_to,
                     cover_letter=cover_letter,
+                    status='pending'
                 )
                 return HttpResponse('Project Applied Successfully')
             except Exception as e:
