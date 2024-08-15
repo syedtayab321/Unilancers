@@ -216,7 +216,6 @@ def TokenPage(request):
 
 def CreateGig(request):
     if request.method == 'POST':
-        # Retrieve form data
         sellerId = request.POST.get('SellerId')
         gig_title = request.POST.get('gigTitle')
         gig_field = request.POST.get('gigField')
@@ -225,9 +224,8 @@ def CreateGig(request):
         gig_image1 = request.FILES.get('gigImage1')
         gig_image2 = request.FILES.get('gigImage2')
         gig_image3 = request.FILES.get('gigImage3')
-
+        totalgigs = models.GigDataModal.objects.filter(seller_id=sellerId)
         try:
-           totalgigs=models.GigDataModal.objects.get(seller_id=sellerId)
            if len(totalgigs) <= 4:
                new_gig = models.GigDataModal.objects.create(
                    seller_id=sellerId,
@@ -239,7 +237,7 @@ def CreateGig(request):
                    gig_image2=gig_image2,
                    gig_image3=gig_image3,
                )
-               return HttpResponse('Successfully registered data')
+               return redirect('main')
            else:
                return HttpResponse('You can only add 4 gig samples not more than that')
         except Exception as e:

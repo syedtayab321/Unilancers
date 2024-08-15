@@ -1,5 +1,5 @@
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins';
     background-color: #f8f9fa;
     margin: 0;
     padding: 0;
@@ -216,66 +216,81 @@ table tbody tr:hover {
 }
 
 /* Gig Card Styling */
-.gig-card {
-    height: 420px; /* Set a fixed height for the cards */
-    width: 100%; /* Set a fixed width to occupy the full column width */
-    margin-bottom: 30px;
-    transition: box-shadow 0.3s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+ .gig-card {
+            margin-bottom: 10px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
 
-.gig-card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
+        .gig-card:hover {
+            transform: translateY(-5px);
+        }
 
-.gig-image {
-    height: 200px; /* Set a fixed height for the images */
-    width: 100%; /* Ensure the image fills the card width */
-    object-fit: cover; /* Scale and crop the image to fill the area */
-}
+        .gig-image {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin: 0 auto;
+            display: block;
+            margin-top: -75px;
+            border: 5px solid white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-.gig-info {
-    text-align: left;
-    padding: 10px; /* Add padding inside the gig info */
-    flex: 1; /* Ensure gig info takes up the remaining space */
-}
+        .card-body {
+            text-align: center;
+            padding-top: 80px;
+        }
 
-.gig-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
+        .gig-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #333;
+        }
 
-.gig-description {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 10px;
-    flex-grow: 1; /* Allow description to grow to fill space */
-}
+        .gig-description {
+            font-size: 1rem;
+            color: #777;
+            margin-bottom: 15px;
+        }
 
-.gig-price {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-    margin-top: auto; /* Push price to the bottom */
-}
+        .gig-price {
+            font-size: 1rem;
+            color: #333;
+            font-weight: 500;
+        }
 
-.gig-rating {
-    font-size: 14px;
-    color: #333;
-    margin-top: 5px;
-}
+        .card-buttons {
+            margin-top: 20px;
+        }
 
-.rating-stars {
-    color: #f5a623;
-}
+        .btn-view, .btn-contact {
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
 
-.gig-badge {
-    font-size: 12px;
-    margin-top: 5px;
-}
+        .btn-view {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-view:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-contact {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .btn-contact:hover {
+            background-color: #218838;
+        }
 .table-container {
             margin: 30px auto;
             max-width: 1200px;

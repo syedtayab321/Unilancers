@@ -25,4 +25,8 @@ urlpatterns = [
   path('add-project/', views.add_project, name='add_project'),
   path('view-posted-projects/', views.view_posted_projects, name='view_posted_projects'),
   path('buyerlogout/', views.logout_view, name='buyerlogout'),
+  path('requestApproval/<int:id>',views.RequestApproval,name='requestApproval'),
+  path('requestRejection/<int:id>',views.RequestRejection,name='requestRejection'),
+  path('postedprojectdelete/<int:id>',views.PostedProjectDelete,name='postedprojectdelete'),
+  path('viewgigs/<int:sellerid>',views.ViewGigs, name="viewgigs"),
 ]

@@ -1,16 +1,40 @@
-<div class="tile-container">
-        {% for gig in projectdata%}
-            <div class="project-tile  bg-dark">
-            <h4 class="project-title">{{ gig.project_name }}</h4>
-            <div class="project-details">
-                <p><strong>Seller ID: </strong> {{ gig.seller_id }}</p>
-                <p><strong>Start Date: </strong> {{ gig.Date_from }}</p>
-                <p><strong>End Date: </strong> {{ gig.Date_to}}</p>
-                <p><strong>Cover Letter: </strong>{{ gig.cover_letter }}</p>
-                <p><strong>Amount: </strong> {{ gig.project_price }}</p>
-            </div>
-        </div>
-        {% empty %}
-            <h1>nothing to show</h1>
-        {% endfor %}
-</div>
+<section class="table-container">
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Project Name</th>
+                    <th>Seller ID</th>
+                    <th>Price</th>
+                    <th>Tokens</th>
+                    <th>Date From</th>
+                    <th>Date To</th>
+                    <th>Cover Letter</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for request in projectdata %}
+                <tr>
+                    <td>{{ request.project_name }}</td>
+                    <td>{{ request.seller_id }}</td>
+                    <td>${{ request.project_price }}</td>
+                    <td>{{ request.project_tokens }}</td>
+                    <td>{{ request.Date_from }}</td>
+                    <td>{{ request.Date_to }}</td>
+                    <td>{{ request.cover_letter }}</td>
+                     {% if request.status == 'Approved'  %}
+                     <td class="status-cell status" style="color: lawngreen">{{ request.status }}</td>
+                     {% elif request.status == 'Rejected' %}
+                     <td class="status-cell status" style="color: red">{{ request.status }}</td>
+                     {% elif request.status == 'pending' %}
+                     <td class="status-cell status" style="color: yellow">{{ request.status }}</td>
+                     {% endif %}
+                </tr>
+                {% empty %}
+                <tr class="empty-row">
+                    <td colspan="8">No requests found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>

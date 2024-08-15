@@ -5,14 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b71776db-b8b2-4252-bbee-a3e154d55245" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/buyer/templates/Components/GigsDetails.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/buyer/templates/Components/SellerProfiles.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UniSeller/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSeller/templates/Dashboard/DashboardComponents/appliedprojects.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/Dashboard/DashboardComponents/appliedprojects.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UniSeller/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UniSeller/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/UniSeller/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buyer/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/buyer/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buyer/templates/Components/logout.html" beforeDir="false" afterPath="$PROJECT_DIR$/buyer/templates/Components/logout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buyer/templates/Components/ApprovalModal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/buyer/templates/Components/MainGigs.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/buyer/templates/Components/ViewRequest.html" beforeDir="false" afterPath="$PROJECT_DIR$/buyer/templates/Components/ViewRequest.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/buyer/templates/buyerdashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/buyer/templates/buyerdashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buyer/templates/view_posted_projects.html" beforeDir="false" afterPath="$PROJECT_DIR$/buyer/templates/view_posted_projects.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buyer/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/buyer/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/buyer/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/buyer/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unilancers/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/unilancers/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/buyer/css/buyerdashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/buyer/css/buyerdashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/unisellers/css/maindashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/unisellers/css/maindashboard.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +107,7 @@
       <workItem from="1723588439675" duration="737000" />
       <workItem from="1723601190351" duration="7690000" />
       <workItem from="1723655021270" duration="13171000" />
-      <workItem from="1723684971555" duration="6536000" />
+      <workItem from="1723684971555" duration="16460000" />
     </task>
     <servers />
   </component>

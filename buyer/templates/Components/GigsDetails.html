@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card with Images</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="../../../static/unisellers/googlelogos/play.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        bod{
+            font-family: Poppins;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            background-color: #15058c; /* White background for the card */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+        .card-img-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+        .card-img-container img {
+            width: 100%;
+            height: auto;
+            max-width: 350px; /* Medium-sized images */
+            border-radius: 10px;
+            margin-right: 0.75rem;
+        }
+        .card-img-container img:last-child {
+            margin-right: 0;
+        }
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff; /* Darker text color for better contrast */
+        }
+        .card-subtitle {
+            font-size: 1.1rem;
+            color: #ffffff; /* Slightly darker grey for subtitles */
+        }
+        .card-text {
+            font-size: 1rem;
+            color: #ffffff; /* Medium grey for text */
+        }
+        .container {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    {% for data in gigsdata %}
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Title: {{ data.gig_title }}</h5>
+                <h6 class="card-subtitle mb-2">Field Expert in:{{ data.field }}</h6>
+                <p class="card-text">SubField: {{ data.sub_field }}</p>
+                <div class="card-img-container">
+                    <img src="{{ data.gig_image1.url }}" alt="Image 1">
+                    <img src="{{ data.gig_image2.url }}" alt="Image 2">
+                    <img src="{{ data.gig_image3.url }}" alt="Image 3">
+                </div>
+                <p class="card-text">Description:{{ data.description }}</p>
+            </div>
+        </div>
+    {% empty %}
+        <p>No gigs available.</p>
+    {% endfor %}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -42,18 +42,19 @@ def buyersignup(request):
 
 
 def buyerdashboard(request):
-    # Check if the user ID is available in the session
     user_id = request.session.get('userid')
     if not user_id:
         return HttpResponse('User ID not found in session', status=400)
-
     try:
         data = sellermodel.ProjectAppliedModal.objects.filter(posted_by=user_id)
-        return render(request, 'buyerdashboard.html', {'data': data})
+        sellerdata=sellermodel.SellerSignUpModal.objects.all()
+        return render(request, 'buyerdashboard.html', {'data': data,'sellerdata':sellerdata})
     except sellermodel.ProjectAppliedModal.DoesNotExist:
-        return render(request, 'buyerdashboard.html', {'data': []})
+        sellerdata = sellermodel.SellerSignUpModal.objects.all()
+        return render(request, 'buyerdashboard.html', {'data': [],'sellerdata':sellerdata})
     except Exception as e:
         return HttpResponse(f'An error occurred: {str(e)}', status=500)
+
 def add_project(request):
     if request.method == 'POST':
         project_name = request.POST.get('project_name')
@@ -82,3 +83,32 @@ def view_posted_projects(request):
 def logout_view(request):
     request.session.flush()  # Clear all session data
     return redirect('index')
+
+def RequestApproval(request,id):
+    data=sellermodel.ProjectAppliedModal.objects.filter(id=id)
+    if data:
+        sellermodel.ProjectAppliedModal.objects.filter(id=id).update(status='Approved')
+        return redirect('buyerdashboard')
+    else:
+        return HttpResponse('No data found')
+
+def RequestRejection(request,id):
+    data=sellermodel.ProjectAppliedModal.objects.filter(id=id)
+    if data:
+        sellermodel.ProjectAppliedModal.objects.filter(id=id).update(status='Rejected')
+        return redirect('buyerdashboard')
+    else:
+        return HttpResponse('No data found')
+
+def PostedProjectDelete(request,id):
+    data=models.Project.objects.filter(id=id)
+    if data:
+        models.Project.objects.filter(id=id).delete()
+        return redirect('buyerdashboard')
+    else:
+        return HttpResponse('No data found')
+
+
+def ViewGigs(request,sellerid):
+    gigsdata=sellermodel.GigDataModal.objects.filter(seller_id=sellerid)
+    return render(request,'buyer/templates/Components/GigsDetails.html',{'gigsdata':gigsdata})
