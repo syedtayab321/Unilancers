@@ -82,7 +82,7 @@ def SellerSignUp(request):
                        Your verification code is {verification_code}.
                        Thank you for signing up.
                        """
-                    send_mail(subject, message, 'syedhussain4508@gmail.com', [university_email])
+                    send_mail(subject, message, 'adminemail@gmail.com', [university_email])
                     context = {'university_email': university_email}
                     return render(request, 'confirmationpage.html', context)
                 else:
