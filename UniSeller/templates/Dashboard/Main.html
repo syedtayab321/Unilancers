@@ -26,9 +26,6 @@
                             <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all" aria-selected="true">Projects</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">Messages</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" id="orders-tab" data-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false">Active Projects</a>
                         </li>
                         <li class="nav-item">
@@ -42,10 +39,6 @@
                        <!--project cards -->
                         <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
                             {% include 'Dashboard/DashboardComponents/Projectcard.html' %}
-                        </div>
-                         <!--project messages -->
-                        <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="messages-tab">
-                            {% include 'Dashboard/DashboardComponents/messages.html' %}
                         </div>
                          <!--project active projects -->
                         <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">

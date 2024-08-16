@@ -29,6 +29,7 @@ urlpatterns = [
     path('tokenpage', views.TokenPage, name='tokenPage'),
     path('paymentpage', views.PaymentCard, name='paymentpage'),
     path('gigcreate',views.CreateGig,name='gigcreate'),
-    path('viewgigs/<int:id>/',views.ViewGig,name='viewgigs'),
-    path('gigdelete/<int:id>/',views.GigDelete,name='gigdelete'),
+    path('sellerviewgigs/<int:id>/',views.ViewGig,name='sellerviewgigs'),
+    path('sellergigdelete/<int:id>/',views.GigDelete,name='sellergigdelete'),
+    path('messagepage',views.MessagePage,name='messagepage'),
 ]

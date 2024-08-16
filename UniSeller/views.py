@@ -1,3 +1,4 @@
+import datetime
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from UniSeller import models
@@ -5,7 +6,7 @@ from buyer import  models as buyer_models
 from django.core.mail import send_mail
 import random
 import string
-
+from datetime import datetime
 
 # Create your views here.
 def index(request):
@@ -121,10 +122,22 @@ def confirmation(request):
 
 
 def SellerDashboard(request):
+    # gigs data
     gig_data = models.GigDataModal.objects.all()
+    # applied projects data
     applied_projects = models.ProjectAppliedModal.objects.all()
+    # active project
+    active_projects = models.ProjectAppliedModal.objects.filter(status='Approved')
+    today = datetime.now().date()
+    for project in active_projects:
+        end_date = project.Date_to
+        if end_date:
+            project.remaining_days = (end_date - today).days
+        else:
+            project.remaining_days = None
+    #posted projects
     posted_project=buyer_models.Project.objects.all()
-    return render(request, 'Dashboard/Main.html', {'projectdata':applied_projects,'gigdata':gig_data,'PostedProjects':posted_project})
+    return render(request, 'Dashboard/Main.html', {'projectdata':applied_projects,'gigdata':gig_data,'PostedProjects':posted_project,'active_projects':active_projects})
 
 
 def logout_view(request):
@@ -264,3 +277,6 @@ def GigDelete(request, id):
 
 def PaymentCard(request):
     return render(request,'Dashboard/TokenRelated/Payment.html')
+
+def MessagePage(request):
+    return render(request,'Dashboard/ManageMessages/Messages.html')
