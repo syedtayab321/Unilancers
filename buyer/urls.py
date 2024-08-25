@@ -29,4 +29,5 @@ urlpatterns = [
   path('requestRejection/<int:id>',views.RequestRejection,name='requestRejection'),
   path('postedprojectdelete/<int:id>',views.PostedProjectDelete,name='postedprojectdelete'),
   path('viewgigs/<int:sellerid>',views.ViewGigs, name="viewgigs"),
+  path('projectpayment',views.ProjectPayment,name='projectpayment'),
 ]

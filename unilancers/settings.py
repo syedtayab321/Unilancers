@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'UniSeller',
-    'buyer'
+    'buyer',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +71,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'unilancers.wsgi.application'
+
+# for chat settings
 
 
 # Database

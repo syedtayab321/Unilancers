@@ -4,61 +4,136 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Posted Projects</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="icon" href="../../static/unisellers/googlelogos/play.png">
     <style>
-        body{
-            font-family: 'Poppins';
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .header-bar {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 20px;
+        }
+
+        .projects-container {
+            padding: 20px;
+        }
+
+        .project-card {
+            border-radius: 12px;
+            background: #fff;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 1px solid #eaeaea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card-body {
+            padding: 20px;
+            position: relative;
+        }
+
+        .project-card-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .project-card-details {
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .project-card-description-container {
+            max-height: 100px; /* Limiting the height for the description */
+            overflow-y: auto;
+            margin-top: 10px;
+        }
+
+        .project-card-description {
+            white-space: pre-wrap;
+            color: #444;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f1f1f1;
+        }
+
+        /* Scrollbar Styling */
+        .project-card-description-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .project-card-description-container::-webkit-scrollbar-thumb {
+            background-color: #b0b0b0;
+            border-radius: 5px;
+        }
+
+        .project-card-description-container::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+        }
+
+        .project-card-actions {
+            margin-top: 20px;
+        }
+
+        .project-card-actions .btn {
+            font-size: 0.875rem;
+            padding: 8px 16px;
+            border-radius: 50px;
         }
     </style>
 </head>
 <body>
     <!-- Header Bar -->
-    <div class="header-bar bg-dark text-white text-center py-3">
+    <div class="header-bar">
         <h1 class="m-0">Unilancerz</h1>
     </div>
 
-    <div class="container mt-4">
-        <div class="card">
-            <div class="card-header">
-                <h1 class="my-4">My Posted Projects</h1>
+    <div class="container projects-container">
+        <!-- Check if the user has posted any projects -->
+        {% if projects %}
+        <div class="row">
+            {% for project in projects %}
+            <div class="col-md-6">
+                <div class="project-card shadow-lg">
+                    <div class="project-card-body">
+                        <h5 class="project-card-title">{{ project.project_name }}</h5>
+                        <div class="project-card-details">
+                            <strong>Budget:</strong> ${{ project.project_budget }}<br>
+                            <strong>Deadline:</strong> {{ project.project_deadline }}<br>
+                            <strong>Created at:</strong> {{ project.created_at }}<br>
+                            <strong>Updated at:</strong> {{ project.updated_at }}<br>
+                            <strong>User ID:</strong> {{ project.userid }}
+                        </div>
+                        <div class="project-card-description-container">
+                            <strong>Description:</strong>
+                            <div class="project-card-description">{{ project.project_description }}</div>
+                        </div>
+                        <div class="project-card-actions mt-3">
+                            <a class="btn btn-danger" href="{% url 'postedprojectdelete' project.id %}">DELETE</a>
+                        </div>
+                        
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-                <!-- Check if the user has posted any projects -->
-                {% if projects %}
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>Project Name</th>
-                            <th>Description</th>
-                            <th>Budget</th>
-                            <th>Deadline</th>
-                            <th>Created_at</th>
-                            <th>Updated_at</th>
-                            <th>User_id</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for project in projects %}
-                        <tr>
-                            <td>{{ project.project_name }}</td>
-                            <td>{{ project.project_description }}</td>
-                            <td>${{ project.project_budget }}</td>
-                            <td>{{ project.project_deadline }}</td>
-                            <td>{{ project.created_at }}</td>
-                            <td>{{ project.updated_at }}</td>
-                            <td>{{ project.userid }}</td>
-                            <td><a  class="btn btn-danger" href="{% url 'postedprojectdelete' project.id %}">DELETE</a></td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-                {% else %}
-                <p class="text-center">No projects posted yet.</p>
-                {% endif %}
-            </div>
+            {% endfor %}
         </div>
+        {% else %}
+        <p class="text-center">No projects posted yet.</p>
+        {% endif %}
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

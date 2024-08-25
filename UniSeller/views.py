@@ -10,7 +10,8 @@ from datetime import datetime
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    gigsdata=models.GigDataModal.objects.all()
+    return render(request, 'home.html',{'gigdata':gigsdata})
 
 
 #seller login related

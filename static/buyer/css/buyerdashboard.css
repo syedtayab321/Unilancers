@@ -309,6 +309,8 @@ table tbody tr:hover {
         .table td {
             vertical-align: middle;
             text-align: center;
+            height: 70px;
+            overflow: scroll;
         }
         .status-cell {
             font-weight: bold;
@@ -329,3 +331,104 @@ table tbody tr:hover {
             text-align: center;
             color: #6c757d;
         }
+/* Unique Card Styles */
+.request-cards-container {
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+.request-card {
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #eaeaea;
+}
+
+.request-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.request-card-body {
+  padding: 20px;
+  position: relative;
+}
+
+.request-card-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.request-card-details {
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.request-card-cover-letter-container {
+  max-height: 150px; /* Limiting the height for the cover letter section */
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+.request-card-cover-letter {
+  white-space: pre-wrap;
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+}
+
+.request-card-status {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  border-radius: 20px;
+  text-transform: capitalize;
+  margin-top: 15px;
+}
+
+/* Status Colors */
+.status-approved {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.status-rejected {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.status-pending {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+/* Action Buttons */
+.request-card-actions {
+  margin-top: 20px;
+}
+
+.request-card-actions .btn {
+  font-size: 0.875rem;
+  padding: 8px 16px;
+  border-radius: 50px;
+}
+
+/* Scrollbar Styling */
+.request-card-cover-letter-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.request-card-cover-letter-container::-webkit-scrollbar-thumb {
+  background-color: #b0b0b0;
+  border-radius: 5px;
+}
+
+.request-card-cover-letter-container::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}

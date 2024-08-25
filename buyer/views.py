@@ -18,7 +18,7 @@ def buyerlogin(request):
                 else:
                     return render(request, 'buyersignup.html', {'error': 'Invalid username or password'})
             except Exception as e:
-                return HttpResponse(e)
+                return HttpResponse('wrong cridentials')
         return render(request,'buyersignup.html')
     return redirect('buyerdashboard')
 
@@ -112,3 +112,6 @@ def PostedProjectDelete(request,id):
 def ViewGigs(request,sellerid):
     gigsdata=sellermodel.GigDataModal.objects.filter(seller_id=sellerid)
     return render(request,'buyer/templates/Components/GigsDetails.html',{'gigsdata':gigsdata})
+
+def ProjectPayment(request):
+    return render(request,'ProjectPayment.html')

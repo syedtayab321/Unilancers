@@ -1,45 +1,89 @@
 body {
-    font-family: 'Poppins';
-    background-color: #f8f9fa;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+.login-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 .login-container {
-    min-width: 400px;
-    width: 600px;
-    margin: auto;
+    width: 520px;
     padding: 2rem;
     background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    margin: 1rem;
 }
+
 .login-title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
     text-align: center;
+    color: #333;
 }
+
 .login-form .form-control {
-    border-radius: 10px;
+    border-radius: 8px;
+    padding: 0.75rem;
+    font-size: 1rem;
 }
+
 .btn-custom {
-    border-radius: 10px;
-    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    padding: 0.75rem;
     font-weight: 600;
+    background-color: #006600;
+    border-color: #006600;
+    color: white;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-custom:hover {
     background-color: #004d00;
     border-color: #004d00;
+    box-shadow: 0 5px 15px rgba(0, 77, 0, 0.3);
     color: white;
 }
-.btn-custom:hover {
-    background-color: #003300;
-    border-color: #003300;
-    color: white;
-}
+
 .forgot-password-link {
     display: block;
     text-align: center;
     margin-top: 1rem;
+    color: #006600;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
-.login-container .links{
+
+.forgot-password-link:hover {
+    color: #004d00;
+    text-decoration: underline;
+}
+
+.login-container .links {
     display: flex;
-    justify-content: space-around;
-    width: 100%;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        padding: 1.5rem;
+        margin: 0.5rem;
+    }
+
+    .login-title {
+        font-size: 1.75rem;
+    }
+
+    .btn-custom {
+        font-size: 1rem;
+    }
 }

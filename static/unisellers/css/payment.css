@@ -1,4 +1,6 @@
-/* Background Color */
+body{
+    font-family: "Poppins", sans-serif;
+}
 .bg-light {
     background-color: #f8f9fa;
 }
