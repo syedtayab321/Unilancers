@@ -12,7 +12,6 @@ body {
     background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.6)), url('../images/2.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
     height: 100vh;
     width: 100%;
 }
@@ -248,3 +247,16 @@ blockquote-footer {
 .footer-section a{
     color: white;
 }
+  .service-icon {
+            font-size: 40px;
+            color: #2f513c;
+            margin-bottom: 20px;
+        }
+        .service-title {
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .service-description {
+            color: #666;
+        }

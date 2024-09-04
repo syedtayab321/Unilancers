@@ -1,6 +1,7 @@
 from datetime import date
-
 from django.db import models
+from buyer.models import Buyersignup
+
 
 # Create your models here.
 class SellerSignUpModal(models.Model):
@@ -53,3 +54,22 @@ class GigDataModal(models.Model):
         self.gig_image2.delete(save=False)
         self.gig_image3.delete(save=False)
         super().delete(*args, **kwargs)
+
+# chatting system
+class ChatRoom(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+    uniseller = models.ForeignKey(SellerSignUpModal, on_delete=models.CASCADE, related_name='seller_rooms')
+    buyer = models.ForeignKey(Buyersignup, on_delete=models.CASCADE, related_name='buyer_rooms')
+
+    def __str__(self):
+        return self.name
+
+class Message(models.Model):
+    room = models.ForeignKey(ChatRoom, on_delete=models.CASCADE, related_name='messages')
+    sender_is_seller = models.BooleanField()  # True if the sender is a seller, False if the sender is a buyer
+    content = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        sender_type = "Seller" if self.sender_is_seller else "Buyer"
+        return f'{sender_type}: {self.content[:20]}'

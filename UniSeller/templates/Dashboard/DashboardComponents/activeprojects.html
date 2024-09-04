@@ -8,6 +8,7 @@
                         <th>End Date</th>
                         <th>Remaining Days</th>
                         <th>Amount</th>
+                        <th>Project File</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,6 +25,7 @@
                                 {% endif %}
                             </td>
                             <td>${{ data.project_price }}</td>
+                             <td><input type="file" placeholder="Add Project Files"></td>
                         </tr>
                     {% empty %}
                         <tr>

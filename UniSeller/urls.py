@@ -3,6 +3,7 @@ from django.urls import path
 from UniSeller import views
 urlpatterns = [
     path('',views.index,name='index'),
+    path('subscription',views.Subscription,name='subscription'),
     path('sellerlogin',views.SellerLogin,name='sellerlogin'),
     path('sellersignup',views.SellerSignUp,name='sellersignup'),
     path('confirmation',views.confirmation,name='confirmation'),
@@ -17,4 +18,5 @@ urlpatterns = [
     path('sellerviewgigs/<int:id>/',views.ViewGig,name='sellerviewgigs'),
     path('sellergigdelete/<int:id>/',views.GigDelete,name='sellergigdelete'),
     path('messagepage',views.MessagePage,name='messagepage'),
+    path('withdraw_project/<int:projectid>',views.Withdraw_project, name='withdraw_project'),
 ]

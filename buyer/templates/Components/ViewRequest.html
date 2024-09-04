@@ -28,7 +28,7 @@
 
           <!-- Buttons -->
           <div class="request-card-actions mt-3">
-            <a class="btn btn-success me-2" href="{% url 'projectpayment' %}" target="_blank">Approve</a>
+            <a class="btn btn-success me-2" href="{% url 'payment_view' %}" target="_blank">Approve</a>
             <a class="btn btn-danger" href="{% url 'requestRejection' request.id %}">Reject</a>
                 <a class="btn btn-warning" href="{% url 'viewgigs' request.seller_id %}" target="_blank">View Seller Details</a>
           </div>

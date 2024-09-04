@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from zope.interface import named
+
 from buyer import views
 
 urlpatterns = [
@@ -29,5 +31,7 @@ urlpatterns = [
   path('requestRejection/<int:id>',views.RequestRejection,name='requestRejection'),
   path('postedprojectdelete/<int:id>',views.PostedProjectDelete,name='postedprojectdelete'),
   path('viewgigs/<int:sellerid>',views.ViewGigs, name="viewgigs"),
-  path('projectpayment',views.ProjectPayment,name='projectpayment'),
+  path('payment_view',views.payment_view,name='payment_view'),
+  path('payment_success',views.payment_success,name='payment_success'),
+  path('payment_failed',views.payment_failed,name='payment_failed'),
 ]

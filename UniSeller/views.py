@@ -13,7 +13,8 @@ def index(request):
     gigsdata=models.GigDataModal.objects.all()
     return render(request, 'home.html',{'gigdata':gigsdata})
 
-
+def Subscription(request):
+    return render(request,'subscription.html')
 #seller login related
 def SellerLogin(request):
     if 'email' in request.session:
@@ -37,12 +38,10 @@ def SellerLogin(request):
 
     return render(request, 'SellerLogin.html')
 
-
 #seller singup related
 def generate_verification_code(length=6):
     digits = string.digits
     return ''.join(random.choice(digits) for i in range(length))
-
 
 def SellerSignUp(request):
     if request.method == "POST":
@@ -94,7 +93,6 @@ def SellerSignUp(request):
             return HttpResponse(f"An error occurred: {e}")
     return render(request, 'sellerSignup.html')
 
-
 def confirmation(request):
     if request.method == 'POST':
         email = request.POST['university_email']
@@ -121,7 +119,6 @@ def confirmation(request):
 
     return render(request, 'confirmationpage.html')
 
-
 def SellerDashboard(request):
     # gigs data
     gig_data = models.GigDataModal.objects.all()
@@ -140,11 +137,9 @@ def SellerDashboard(request):
     posted_project=buyer_models.Project.objects.all()
     return render(request, 'Dashboard/Main.html', {'projectdata':applied_projects,'gigdata':gig_data,'PostedProjects':posted_project,'active_projects':active_projects})
 
-
 def logout_view(request):
     request.session.flush()  # Clear all session data
     return redirect('index')
-
 
 def ProjectDetails(request,projectname):
      data=buyer_models.Project.objects.get(project_name=projectname)
@@ -177,7 +172,6 @@ def ProjectDetailsAdd(request,projectname):
             except Exception as e:
                 return HttpResponse(e)
     return render(request, 'Dashboard/ProjectRelated/ProjectApplyModal.html',{'data':data})
-
 
 def Profile(request):
     if request.method == "POST":
@@ -223,10 +217,8 @@ def Profile(request):
     except models.SellerSignUpModal.DoesNotExist:
         return HttpResponse('User not found', status=404)
 
-
 def TokenPage(request):
     return render(request, 'Dashboard/TokenRelated/BidTokens.html')
-
 
 def CreateGig(request):
     if request.method == 'POST':
@@ -259,11 +251,9 @@ def CreateGig(request):
 
     return render(request, 'Dashboard/ManageGigs/CreateGig.html')
 
-
 def ViewGig(request, id):
     gigdata = models.GigDataModal.objects.get(id=id)
     return render(request, 'Dashboard/ManageGigs/ViewGigsDetails.html', {'gigdata': gigdata})
-
 
 def GigDelete(request, id):
     try:
@@ -281,3 +271,8 @@ def PaymentCard(request):
 
 def MessagePage(request):
     return render(request,'Dashboard/ManageMessages/Messages.html')
+
+def Withdraw_project(request,projectid):
+    if request.method == 'POST':
+        models.ProjectAppliedModal.objects.get(id=projectid).delete()
+        return redirect('main')

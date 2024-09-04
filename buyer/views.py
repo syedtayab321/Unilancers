@@ -1,7 +1,12 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+import requests
+from django.shortcuts import render, redirect,get_object_or_404
 from buyer import models
 from UniSeller import models as sellermodel
+import stripe
+from django.conf import settings
+from django.urls import reverse
+from .models import Payment
 
 def buyerlogin(request):
     if request.session.get('buyeremail') is None:
@@ -22,7 +27,6 @@ def buyerlogin(request):
         return render(request,'buyersignup.html')
     return redirect('buyerdashboard')
 
-
 def buyersignup(request):
     if request.session.get("buyeremail") is None:
         if request.method == "POST":
@@ -40,7 +44,6 @@ def buyersignup(request):
     else:
         return redirect('buyerdashboard')
 
-
 def buyerdashboard(request):
     user_id = request.session.get('userid')
     if not user_id:
@@ -48,10 +51,12 @@ def buyerdashboard(request):
     try:
         data = sellermodel.ProjectAppliedModal.objects.filter(posted_by=user_id)
         sellerdata=sellermodel.SellerSignUpModal.objects.all()
-        return render(request, 'buyerdashboard.html', {'data': data,'sellerdata':sellerdata})
+        active_projects=sellermodel.ProjectAppliedModal.objects.filter(posted_by=user_id,status='Rejected')
+        return render(request, 'buyerdashboard.html', {'data': data,'sellerdata':sellerdata,'active_projects':active_projects})
     except sellermodel.ProjectAppliedModal.DoesNotExist:
         sellerdata = sellermodel.SellerSignUpModal.objects.all()
-        return render(request, 'buyerdashboard.html', {'data': [],'sellerdata':sellerdata})
+        active_projects = sellermodel.ProjectAppliedModal.objects.filter(posted_by=user_id, status='Approved')
+        return render(request, 'buyerdashboard.html', {'data': [],'sellerdata':sellerdata,'active_projects':active_projects})
     except Exception as e:
         return HttpResponse(f'An error occurred: {str(e)}', status=500)
 
@@ -104,14 +109,50 @@ def PostedProjectDelete(request,id):
     data=models.Project.objects.filter(id=id)
     if data:
         models.Project.objects.filter(id=id).delete()
-        return redirect('buyerdashboard')
+        return redirect('view_posted_projects')
     else:
         return HttpResponse('No data found')
-
 
 def ViewGigs(request,sellerid):
     gigsdata=sellermodel.GigDataModal.objects.filter(seller_id=sellerid)
     return render(request,'buyer/templates/Components/GigsDetails.html',{'gigsdata':gigsdata})
 
-def ProjectPayment(request):
-    return render(request,'ProjectPayment.html')
+# payment processing here
+stripe.api_key = settings.STRIPE_SECRET_KEY
+def payment_view(request):
+    if request.method == 'POST':
+        client_name = request.POST['client_name']
+        amount = float(request.POST['amount'])
+        currency = 'GBP'  # You can change this to other currencies
+
+        # Create a Stripe charge
+        try:
+            charge = stripe.Charge.create(
+                amount=int(amount * 100),  # Stripe expects the amount in cents/pence
+                currency=currency,
+                source=request.POST['stripeToken'],
+                description=f'Payment by {client_name}',
+            )
+
+            # Save the payment details in the database
+            payment = Payment(
+                client_name=client_name,
+                amount=amount,
+                currency=currency,
+                stripe_charge_id=charge.id,
+            )
+            payment.save()
+
+            return redirect('payment_success')
+
+        except stripe.error.StripeError as e:
+            return render(request, 'ProjectPayment.html', {'error': str(e)})
+
+    return render(request, 'ProjectPayment.html', {
+        'stripe_publishable_key': settings.STRIPE_PUBLISHABLE_KEY
+    })
+
+def payment_success(request):
+    return render(request, 'payments/payment_success.html')
+def payment_failed(request):
+    return render(request, 'payments/payment_failed.html')

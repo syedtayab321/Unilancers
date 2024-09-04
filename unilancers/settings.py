@@ -162,3 +162,7 @@ SESSION_COOKIE_HTTPONLY = True
 
 # Name of the session cookie
 SESSION_COOKIE_NAME = 'sessionid'
+
+
+STRIPE_SECRET_KEY = 'your-stripe-secret-key'
+STRIPE_PUBLISHABLE_KEY = 'your-stripe-publishable-key'

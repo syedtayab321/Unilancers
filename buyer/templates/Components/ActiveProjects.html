@@ -1,0 +1,38 @@
+<div class="container my-4">
+        <h1 class="mb-4">Ongoing Projects</h1>
+        <table class="table-bordered">
+            <thead>
+                <tr>
+                    <th>Project Name</th>
+                    <th>Seller ID</th>
+                    <th>Price</th>
+                    <th>Tokens</th>
+                    <th>Date From</th>
+                    <th>Date To</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for project in active_projects %}
+                <tr>
+                    <td>{{ project.project_name }}</td>
+                    <td>{{ project.seller_id }}</td>
+                    <td>${{ project.project_price }}</td>
+                    <td>{{ project.project_tokens }}</td>
+                    <td>{{ project.Date_from }}</td>
+                    <td>{{ project.Date_to }}</td>
+                    <td>
+                        <form method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-success">Project Completed</button>
+                        </form>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="7" class="text-center">No ongoing projects found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>

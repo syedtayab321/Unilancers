@@ -28,6 +28,9 @@
                     <a class="nav-link" id="messages-tab" data-bs-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">Messages</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" id="activeprojectab" data-bs-toggle="tab" href="#activeProjects" role="tab" aria-controls="activeproject" aria-selected="false">ActiveProjects</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" id="requests-tab" data-bs-toggle="tab" href="#requests" role="tab" aria-controls="requests" aria-selected="false">Request From Sellers</a>
                 </li>
                 <li class="nav-item">
@@ -45,6 +48,9 @@
                 <!-- Messages -->
                 <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="messages-tab">
                     {% include 'buyer/templates/Components/message.html' %}
+                </div>
+                <div class="tab-pane fade" id="activeProjects" role="tabpanel" aria-labelledby="activeprojectab">
+                    {% include 'buyer/templates/Components/ActiveProjects.html' %}
                 </div>
                 <!-- Active Projects -->
                 <div class="tab-pane fade" id="requests" role="tabpanel" aria-labelledby="requests-tab">

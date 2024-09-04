@@ -1,40 +1,43 @@
-<section class="table-container">
-        <table class="table table-striped table-bordered table-hover table-responsive">
-            <thead>
-                <tr>
-                    <th>Project Name</th>
-                    <th>Seller ID</th>
-                    <th>Price</th>
-                    <th>Tokens</th>
-                    <th>Date From</th>
-                    <th>Date To</th>
-                    <th>Cover Letter</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for request in projectdata %}
-                <tr>
-                    <td>{{ request.project_name }}</td>
-                    <td>{{ request.seller_id }}</td>
-                    <td>${{ request.project_price }}</td>
-                    <td>{{ request.project_tokens }}</td>
-                    <td>{{ request.Date_from }}</td>
-                    <td>{{ request.Date_to }}</td>
-                    <td>{{ request.cover_letter }}</td>
-                     {% if request.status == 'Approved'  %}
-                     <td class="status-cell status" style="color: lawngreen">{{ request.status }}</td>
-                     {% elif request.status == 'Rejected' %}
-                     <td class="status-cell status" style="color: red">{{ request.status }}</td>
-                     {% elif request.status == 'pending' %}
-                     <td class="status-cell status" style="color: yellow">{{ request.status }}</td>
-                     {% endif %}
-                </tr>
-                {% empty %}
-                <tr class="empty-row">
-                    <td colspan="8">No requests found.</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </section>
+<section class="request-cards-container my-4">
+    <div class="row">
+      {% for request in projectdata %}
+      <div class="col-md-6 mb-4">
+        <div class="request-card shadow-lg">
+          <div class="request-card-body">
+            <h5 class="request-card-title">{{ request.project_name }}</h5>
+            <p class="request-card-details">
+              <strong>Seller ID:</strong> {{ request.seller_id }}<br>
+              <strong>Price:</strong> ${{ request.project_price }}<br>
+              <strong>Tokens:</strong> {{ request.project_tokens }}<br>
+              <strong>Date From:</strong> {{ request.Date_from }}<br>
+              <strong>Date To:</strong> {{ request.Date_to }}
+            </p>
+            <div class="request-card-cover-letter-container">
+              <strong>Cover Letter:</strong>
+              <div class="request-card-cover-letter">{{ request.cover_letter }}</div>
+            </div>
+            <!-- Status -->
+            {% if request.status == 'Approved' %}
+            <p class="request-card-status status-approved">{{ request.status }}</p>
+            {% elif request.status == 'Rejected' %}
+            <p class="request-card-status status-rejected">{{ request.status }}</p>
+            {% elif request.status == 'pending' %}
+            <p class="request-card-status status-pending">{{ request.status }}</p>
+            {% endif %}
+            <!-- Withdraw Button -->
+            {% if request.status == 'pending' %}
+            <form action="{% url 'withdraw_project' request.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-danger mt-3">Withdraw</button>
+            </form>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="col-12">
+        <p>No requests found.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
