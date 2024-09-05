@@ -156,3 +156,17 @@ def payment_success(request):
     return render(request, 'payments/payment_success.html')
 def payment_failed(request):
     return render(request, 'payments/payment_failed.html')
+
+
+def BuyerFeedback(request):
+    buyer_email = request.session.get('buyeremail')
+    BuyerData = models.Buyersignup.objects.get(email=buyer_email)
+    if request.method == 'POST':
+        message = request.POST['message']
+        feedback = models.BuyerFeedback.objects.create(
+            buyername=BuyerData.name,
+            buyeremail=BuyerData.email,
+            buyermessage=message,
+        )
+        return redirect('BuyerFeedback')
+    return render(request, 'BuyerFeedback.html', {'BuyerData': BuyerData})

@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Buyersignup, Project
+from .models import Buyersignup, Project,BuyerFeedback
+
 
 # Define an admin class for Buyersignup
 class BuyersignupAdmin(admin.ModelAdmin):
@@ -17,3 +18,9 @@ class ProjectAdmin(admin.ModelAdmin):
 # Register the admin classes with the admin site
 admin.site.register(Buyersignup, BuyersignupAdmin)
 admin.site.register(Project, ProjectAdmin)
+
+@admin.register(BuyerFeedback)
+class BuyerFeedbackAdmin(admin.ModelAdmin):
+    list_display = ('buyername', 'buyeremail', 'buyermessage', 'submitted_at')
+    search_fields = ('buyername', 'buyeremail')
+    list_filter = ('submitted_at',)

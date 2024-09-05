@@ -31,4 +31,12 @@ class Payment(models.Model):
     def __str__(self):
         return f"{self.client_name} - {self.amount} {self.currency}"
 
+class BuyerFeedback(models.Model):
+    buyername = models.CharField(max_length=100)
+    buyeremail = models.EmailField()
+    buyermessage = models.TextField()
+    submitted_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Feedback from {self.buyername}"
 
