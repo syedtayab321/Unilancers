@@ -335,6 +335,10 @@ table tbody tr:hover {
 .request-cards-container {
   padding: 20px;
   background-color: #f8f9fa;
+     display: grid;
+     grid-auto-columns: 1fr 1fr;
+     gap: 20px;
+     width: 100%;
 }
 
 .request-card {

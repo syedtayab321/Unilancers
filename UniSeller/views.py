@@ -276,3 +276,16 @@ def Withdraw_project(request,projectid):
     if request.method == 'POST':
         models.ProjectAppliedModal.objects.get(id=projectid).delete()
         return redirect('main')
+
+def SellerFeedback(request):
+     seller_id=request.session.get('sellerId')
+     SellerData=models.SellerSignUpModal.objects.get(id=seller_id)
+     if request.method == 'POST':
+         message=request.POST['message']
+         feedback=models.SellerFeedback.objects.create(
+             name=SellerData.username,
+             email=SellerData.university_email,
+             message=message,
+         )
+         return redirect('SellerFeedback')
+     return render(request,'Feedback.html',{'SellerData':SellerData})

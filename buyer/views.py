@@ -51,7 +51,7 @@ def buyerdashboard(request):
     try:
         data = sellermodel.ProjectAppliedModal.objects.filter(posted_by=user_id)
         sellerdata=sellermodel.SellerSignUpModal.objects.all()
-        active_projects=sellermodel.ProjectAppliedModal.objects.filter(posted_by=user_id,status='Rejected')
+        active_projects=sellermodel.ProjectAppliedModal.objects.filter(posted_by=user_id,status='Approved')
         return render(request, 'buyerdashboard.html', {'data': data,'sellerdata':sellerdata,'active_projects':active_projects})
     except sellermodel.ProjectAppliedModal.DoesNotExist:
         sellerdata = sellermodel.SellerSignUpModal.objects.all()

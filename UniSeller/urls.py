@@ -19,4 +19,5 @@ urlpatterns = [
     path('sellergigdelete/<int:id>/',views.GigDelete,name='sellergigdelete'),
     path('messagepage',views.MessagePage,name='messagepage'),
     path('withdraw_project/<int:projectid>',views.Withdraw_project, name='withdraw_project'),
+    path('SellerFeedback',views.SellerFeedback,name='SellerFeedback'),
 ]
