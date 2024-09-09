@@ -13,6 +13,11 @@ def index(request):
     gigsdata=models.GigDataModal.objects.all()
     return render(request, 'home.html',{'gigdata':gigsdata})
 
+def ForgotPassword(request):
+    return render(request,'ForgotPassword.html')
+def RecivedPayments(request):
+    return render(request,'RecivedPayments.html')
+
 def Subscription(request):
     return render(request,'subscription.html')
 #seller login related

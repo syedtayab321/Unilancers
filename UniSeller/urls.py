@@ -1,5 +1,7 @@
 
 from django.urls import path
+from zope.interface import named
+
 from UniSeller import views
 urlpatterns = [
     path('',views.index,name='index'),
@@ -20,4 +22,6 @@ urlpatterns = [
     path('messagepage',views.MessagePage,name='messagepage'),
     path('withdraw_project/<int:projectid>',views.Withdraw_project, name='withdraw_project'),
     path('SellerFeedback',views.SellerFeedback,name='SellerFeedback'),
+    path('ForgotPassword',views.ForgotPassword,name='ForgotPassword'),
+    path('RecivedPayments',views.RecivedPayments,name='RecivedPayments'),
 ]

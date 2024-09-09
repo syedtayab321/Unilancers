@@ -75,6 +75,33 @@
         var sidebar = document.getElementById('side-bar');
         sidebar.classList.toggle('show')
     }
+    {#search bar for projects#}
+  // Function to filter projects by name
+document.getElementById('projectSearch').addEventListener('keyup', function () {
+  let input = this.value.toLowerCase();
+  let projectItems = document.querySelectorAll('#gigsdata .col-md-4');
+
+  projectItems.forEach(function (item) {
+    let projectNameElement = item.querySelector('.gig-description');
+    if (projectNameElement) {
+      let projectName = projectNameElement.textContent.toLowerCase();
+      console.log('Project Name:', projectName);
+      console.log('Input:', input);
+
+      if (projectName.includes(input)) {
+        console.log('Match found, displaying item');
+        item.style.display = '';
+      } else {
+        console.log('No match, hiding item');
+        item.style.display = 'none'; // Hide item if it doesn't match
+      }
+    } else {
+      console.log('No project name found for item');
+    }
+  });
+});
+
+
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>

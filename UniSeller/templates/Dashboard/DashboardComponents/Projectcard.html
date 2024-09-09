@@ -1,19 +1,27 @@
- <div class="tilecontainer mt-5">
-     <h1 class="mb-4">Posted Projects</h1>
-        <ul class="list-group">
-            {% for data in PostedProjects %}
-                 <li class="list-group-item d-flex justify-content-between align-items-center" style="margin-bottom: 20px">
-                <div>
-                    <h5 class="mb-1">{{ data.project_name }}</h5>
-                    <p class="mb-1 text-success">Posted on: <span class="font-weight-bold">{{ data.created_at }}</span></p>
-                     <span class="btn btn-success"><a href="{% url 'projectdetails' data.project_name %}" class="linkk">View Details</a></span>
-                </div>
-                <div>
-                    <span class="badge badge-primary badge-pill">{{ data.project_budget }}$</span>
-                </div>
-            </li>
-            {% empty %}
-                no posted Project
-            {% endfor %}
-        </ul>
-    </div>
+<div class="tilecontainer mt-5">
+  <h1 class="mb-4">Posted Projects</h1>
+
+  <!-- Search bar -->
+  <div class="form-group mb-4">
+    <input type="text" id="projectSearch" class="form-control" placeholder="Search projects by name...">
+  </div>
+
+  <ul class="list-group" id="projectList">
+    {% for data in PostedProjects %}
+      <li class="list-group-item justify-content-between align-items-center" style="margin-bottom: 20px;display: flex;">
+        <div>
+          <h5 class="mb-1 project-name">{{ data.project_name }}</h5>
+          <p class="mb-1 text-success">Posted on: <span class="font-weight-bold">{{ data.created_at }}</span></p>
+          <span class="btn btn-success">
+            <a href="{% url 'projectdetails' data.project_name %}" class="linkk">View Details</a>
+          </span>
+        </div>
+        <div>
+          <span class="badge badge-primary badge-pill">{{ data.project_budget }}$</span>
+        </div>
+      </li>
+    {% empty %}
+      <li class="list-group-item">No posted projects</li>
+    {% endfor %}
+  </ul>
+</div>

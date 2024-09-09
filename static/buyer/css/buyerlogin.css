@@ -1,3 +1,6 @@
+body{
+    font-family: 'Poppins';
+}
 img{
 	width: 100%;
 }
@@ -52,7 +55,6 @@ img{
 }
 .left input {
     border: none;
-    width: 80%;
     margin: 15px 0px;
     border-bottom: 1px solid #4f30677d;
     padding: 7px 9px;

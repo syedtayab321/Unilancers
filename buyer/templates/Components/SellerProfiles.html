@@ -1,7 +1,11 @@
     <section>
         <div class="container">
             <h2 class="text-center mb-5">Sellers</h2>
-            <div class="row">
+        <!-- Search bar -->
+  <div class="form-group mb-4">
+    <input type="text" id="projectSearch" class="form-control" placeholder="Search Gigs By Field...">
+  </div>
+            <div class="row" id="gigsdata">
                 <!-- Gig Card -->
                 {% for data in sellerdata %}
                     <div class="col-md-4">
@@ -9,7 +13,7 @@
                             <div class="card-body gig-info">
                                 <img src="{{ data.profile_picture.url }}" alt="Gig Image" class="card-img-top gig-image">
                                 <h5 class="card-title gig-title">User Name: {{ data.username }}</h5>
-                                <p class="card-text gig-description">Study Field: {{ data.study_field }}</p>
+                                <p class="card-text gig-description">Expert-in: {{ data.study_field }}</p>
                                 <p class="gig-price">University: {{ data.university_name }}</p>
                                 <div class="card-buttons">
                                     <a href="{% url 'viewgigs' data.id %}" class="btn btn-view">View Details</a>

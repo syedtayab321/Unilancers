@@ -67,6 +67,33 @@
     var sidebar = document.getElementById('side-bar');
     sidebar.classList.toggle('show')
 }
+{#search bar for projects#}
+  // Function to filter projects by name
+document.getElementById('projectSearch').addEventListener('keyup', function () {
+  let input = this.value.toLowerCase();
+  let projectItems = document.querySelectorAll('#projectList .list-group-item');
+
+  projectItems.forEach(function (item) {
+    let projectNameElement = item.querySelector('.project-name');
+    if (projectNameElement) {
+      let projectName = projectNameElement.textContent.toLowerCase();
+      console.log('Project Name:', projectName);
+      console.log('Input:', input);
+
+      if (projectName.includes(input)) {
+        console.log('Match found, displaying item');
+        item.style.display = '';
+      } else {
+        console.log('No match, hiding item');
+        item.style.display = 'none'; // Hide item if it doesn't match
+      }
+    } else {
+      console.log('No project name found for item');
+    }
+  });
+});
+
+
 </script>
 </body>
 </html>
