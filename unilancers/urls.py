@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('UniSeller.urls')),
     path('buyer/',include('buyer.urls')),
+    path('message/', include('MessageApp.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

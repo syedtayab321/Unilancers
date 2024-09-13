@@ -11,35 +11,59 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tagify/4.7.0/tagify.css">
     <style>
         body {
-               font-family: 'Poppins', sans-serif;
-            height: fit-content;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: black;
         }
-        main {
+        .back-to-home {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            cursor: pointer;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            font-size: 1rem;
+            z-index: 1000;
+        }
+        .main-container {
             display: flex;
-            justify-content: center;
+            height: 100vh;
             align-items: center;
+            justify-content: center;
+            padding-top: 50px; /* Ensure space for fixed button */
         }
         .signup-container {
-            margin-top: 20px;
-            width: 1000px;
+            display: flex;
+            width: 90%;
+            height: 93%;
+            max-width: 1200px;
             background: white;
-            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1s ease-in-out;
+            overflow: hidden;
         }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .signup-image {
+            flex: 1;
+            background: url('../../static/unisellers/images/web.jpg') no-repeat center center;
+            background-size: cover;
+            height: 700px;
+            display: block;
+        }
+        .signup-form {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+            max-height: 100vh; /* Make sure the form doesn't exceed viewport height */
+        }
+        .signup-form h2 {
+            margin-bottom: 20px;
         }
         .form-group {
-            padding: 10px;
+            margin-bottom: 15px;
         }
         .btn-primary {
             background-color: #007bff;
@@ -49,7 +73,6 @@
             background-color: #0056b3;
         }
         .signin-link {
-            display: block;
             margin-top: 20px;
             text-align: center;
         }
@@ -59,14 +82,6 @@
         }
         .signin-link a:hover {
             text-decoration: underline;
-        }
-        .tagify {
-            min-height: 60px;
-            height: fit-content;
-        }
-        #skills {
-            min-width: 100%;
-            height: fit-content;
         }
         .avatar-upload {
             display: flex;
@@ -102,83 +117,94 @@
         .avatar-upload label:hover {
             text-decoration: none;
         }
+        @media (max-width: 768px) {
+            .signup-container {
+                flex-direction: column;
+            }
+            .signup-image {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
-    {% include 'Components/Navbar.html' %}
-    <main>
-        <div class="container signup-container">
-            <h2 class="text-center mb-4">Signup</h2>
-            <form method="post" action={% url 'sellersignup' %} enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="avatar-upload">
-                    <div class="avatar-preview" id="avatarPreview">
-                        <img id="avatarImage" src="../../static/unisellers/images/default-avatar.png" alt="Avatar Preview">
+    <div class="back-to-home" onclick="window.location.href='/';">Back to Home</div>
+    <div class="main-container">
+        <div class="signup-container">
+            <div class="signup-image"></div>
+            <div class="signup-form">
+                <h2 class="text-center mb-4">Signup</h2>
+                <form method="post" action="{% url 'sellersignup' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="avatar-upload">
+                        <div class="avatar-preview" id="avatarPreview">
+                            <img id="avatarImage" src="../../static/unisellers/images/default-avatar.png" alt="Avatar Preview">
+                        </div>
+                        <label for="avatarInput">Choose an avatar</label>
+                        <input type="file" id="avatarInput" name="profile" accept="image/*" required>
                     </div>
-                    <label for="avatarInput">Choose an avatar</label>
-                    <input type="file" id="avatarInput" name="profile" accept="image/*" required>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="username">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="university-email">University Email</label>
+                            <input type="email" class="form-control" id="university-email" name="university_email" placeholder="University Email" required>
+                            <span class="text text-danger">{{ emailerror }}</span>
+                        </div>
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="university-email">University Email</label>
-                        <input type="email" class="form-control" id="university-email" name="university_email" placeholder="University Email" required>
-                        <span class="text text-danger">{{ emailerror }}</span>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="mobile-number">Mobile Number</label>
+                            <input type="tel" class="form-control" id="mobile-number" name="mobile_phone" placeholder="Mobile Number" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="university-name">University Name</label>
+                            <input type="text" class="form-control" id="university-name" name="university_name" placeholder="University Name" required>
+                        </div>
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="mobile-number">Mobile Number</label>
-                        <input type="tel" class="form-control" id="mobile-number" name="mobile_phone" placeholder="Mobile Number" required>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="field-of-study">Field of Study</label>
+                            <select class="form-control" id="field-of-study" name="field_of_study" required>
+                                <option>Software Engineering</option>
+                                <option>Data Science</option>
+                                <option>Cyber Security</option>
+                                <option>Information Technology</option>
+                                <option>Artificial Intelligence</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="university-reg-no">University Reg No</label>
+                            <input type="text" class="form-control" id="university-reg-no" name="university_reg_no" placeholder="Registration Number" required>
+                        </div>
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="university-name">University Name</label>
-                        <input type="text" class="form-control" id="university-name" name="university_name" placeholder="University Name" required>
+                    <div class="form-row">
+                        <div class="form-group col-md-12 tagify">
+                            <label for="skills">Skills</label>
+                            <input type="text" class="form-control" id="skills" name="skills" placeholder="Add your skills" required>
+                        </div>
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="field-of-study">Field of Study</label>
-                        <select class="form-control" id="field-of-study" name="field_of_study" required>
-                            <option>Software Engineering</option>
-                            <option>Data Science</option>
-                            <option>Cyber Security</option>
-                            <option>Information Technology</option>
-                            <option>Artificial Intelligence</option>
-                        </select>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="confirm-password">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirm-password" name="confirm_password" placeholder="Confirm Password" required>
+                            <span class="text text-danger">{{ error }}</span>
+                        </div>
                     </div>
-                    <div class="form-group col-md-6">
-                        <label for="university-reg-no">University Reg No</label>
-                        <input type="text" class="form-control" id="university-reg-no" name="university_reg_no" placeholder="Registration Number" required>
+                    <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                    <div class="signin-link">
+                        Already have an account? <a href="sellerlogin">Sign In</a>
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-12 tagify">
-                        <label for="skills">Skills</label>
-                        <input type="text" class="form-control" id="skills" name="skills" placeholder="Add your skills" required>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="confirm-password">Confirm Password</label>
-                        <input type="password" class="form-control" id="confirm-password" name="confirm_password" placeholder="Confirm Password" required>
-                        <span class="text text-danger">{{ error }}</span>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Create Account</button>
-                <div class="signin-link">
-                    Already have an account? <a href="sellerlogin">Sign In</a>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-    </main>
+    </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -190,14 +216,15 @@
 
         // Handle avatar image preview
         document.getElementById('avatarInput').addEventListener('change', function(event) {
-            var reader = new FileReader();
-            reader.onload = function() {
-                var avatarImage = document.getElementById('avatarImage');
-                avatarImage.src = reader.result;
+            var file = event.target.files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('avatarImage').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
             }
-            reader.readAsDataURL(event.target.files[0]);
         });
     </script>
-    <script src="../../static/unisellers/js/script.js"></script>
 </body>
 </html>

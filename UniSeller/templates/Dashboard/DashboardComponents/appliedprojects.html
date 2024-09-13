@@ -24,6 +24,7 @@
             {% elif request.status == 'pending' %}
             <p class="request-card-status status-pending">{{ request.status }}</p>
             {% endif %}
+            <button class="btn btn-default"><a href="{% url 'chat_room' request.seller_id request.posted_by %}" target="_blank">Chat</a></button>
             <!-- Withdraw Button -->
             {% if request.status == 'pending' %}
             <form action="{% url 'withdraw_project' request.id %}" method="post">

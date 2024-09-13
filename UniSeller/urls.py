@@ -19,7 +19,6 @@ urlpatterns = [
     path('gigcreate',views.CreateGig,name='gigcreate'),
     path('sellerviewgigs/<int:id>/',views.ViewGig,name='sellerviewgigs'),
     path('sellergigdelete/<int:id>/',views.GigDelete,name='sellergigdelete'),
-    path('messagepage',views.MessagePage,name='messagepage'),
     path('withdraw_project/<int:projectid>',views.Withdraw_project, name='withdraw_project'),
     path('SellerFeedback',views.SellerFeedback,name='SellerFeedback'),
     path('ForgotPassword',views.ForgotPassword,name='ForgotPassword'),

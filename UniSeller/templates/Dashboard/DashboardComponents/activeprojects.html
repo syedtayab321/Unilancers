@@ -9,6 +9,7 @@
                         <th>Remaining Days</th>
                         <th>Amount</th>
                         <th>Project File</th>
+                        <th>Chat</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,6 +27,7 @@
                             </td>
                             <td>${{ data.project_price }}</td>
                              <td><input type="file" placeholder="Add Project Files"></td>
+                             <td class="btn btn-default"><a href="{% url 'chat_room' data.seller_id data.posted_by %}" target="_blank">Chat</a></td>
                         </tr>
                     {% empty %}
                         <tr>

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import SellerSignUpModal, ProjectAppliedModal, GigDataModal, ChatRoom, Message, SellerFeedback
+from .models import SellerSignUpModal, ProjectAppliedModal, GigDataModal,SellerFeedback
 
 # Register SellerSignUpModal
 @admin.register(SellerSignUpModal)
@@ -22,19 +22,6 @@ class GigDataModalAdmin(admin.ModelAdmin):
     search_fields = ('gig_title', 'field', 'sub_field')
     list_filter = ('field',)
 
-# Register ChatRoom
-@admin.register(ChatRoom)
-class ChatRoomAdmin(admin.ModelAdmin):
-    list_display = ('name', 'uniseller', 'buyer')
-    search_fields = ('name', 'uniseller__username', 'buyer__username')
-    list_filter = ('uniseller', 'buyer')
-
-# Register Message
-@admin.register(Message)
-class MessageAdmin(admin.ModelAdmin):
-    list_display = ('room', 'sender_is_seller', 'content', 'timestamp')
-    search_fields = ('room__name', 'content')
-    list_filter = ('timestamp', 'sender_is_seller')
 
 # Register SellerFeedback
 @admin.register(SellerFeedback)

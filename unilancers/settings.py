@@ -26,7 +26,10 @@ SECRET_KEY = 'django-insecure-c!yh$i=by_50+gdy45*8y7k0-u+vp!h%f+bis+#5*^^1&&03jt
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:2323",
+    # other origins
+]
 
 # Application definition
 
@@ -40,7 +43,14 @@ INSTALLED_APPS = [
     'UniSeller',
     'buyer',
     'channels',
+    'MessageApp',
 ]
+ASGI_APPLICATION = 'unilancers.asgi.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+    },
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -143,8 +153,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'example@gmail.com'  # Replace with your email
-EMAIL_HOST_PASSWORD = 'hello'  # Replace with your email password
+EMAIL_HOST_USER = 'unilancerz224@gmail.com'  # Replace with your email
+EMAIL_HOST_PASSWORD ='hsjd ovhd zflb igso' # Replace with your email password
 
 # settings.py
 
@@ -166,3 +176,6 @@ SESSION_COOKIE_NAME = 'sessionid'
 
 STRIPE_SECRET_KEY = 'your-stripe-secret-key'
 STRIPE_PUBLISHABLE_KEY = 'your-stripe-publishable-key'
+
+BUYER_LOGIN_URL = '/buyer/buyerlogin/'
+SELLER_LOGIN_URL = '/sellerlogin'

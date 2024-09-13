@@ -1,4 +1,6 @@
 import datetime
+
+from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from UniSeller import models
@@ -32,7 +34,8 @@ def SellerLogin(request):
             if user.password == password:
                 request.session['email'] = email
                 request.session['username'] = user.username
-                request.session['sellerId'] = user.id
+                request.session['sellerId'] = user.user_id
+                request.session['user_role']='seller'
                 return redirect('main')
             else:
                 return render(request, 'SellerLogin.html', {'passworderror': 'Wrong password'})
@@ -65,12 +68,18 @@ def SellerSignUp(request):
 
             # Check if the email already exists
             try:
-                user = models.SellerSignUpModal.objects.get(university_email=university_email)
+                user = User.objects.get(email=university_email)
                 data = {'emailerror': 'Email already exists'}
                 return render(request, 'sellerSignup.html', data)
             except:
                 if password == confirm_password:
+                    user = User.objects.create_user(
+                        username=username,
+                        password=password,
+                        email=university_email
+                    )
                     models.SellerSignUpModal.objects.create(
+                        user=user,
                         username=username,
                         profile_picture=profile,
                         university_email=university_email,
@@ -88,7 +97,7 @@ def SellerSignUp(request):
                        Your verification code is {verification_code}.
                        Thank you for signing up.
                        """
-                    send_mail(subject, message, 'adminemail@gmail.com', [university_email])
+                    send_mail(subject, message, 'unilancerz224@gmail.com', [university_email])
                     context = {'university_email': university_email}
                     return render(request, 'confirmationpage.html', context)
                 else:
@@ -273,9 +282,6 @@ def GigDelete(request, id):
 
 def PaymentCard(request):
     return render(request,'Dashboard/TokenRelated/Payment.html')
-
-def MessagePage(request):
-    return render(request,'Dashboard/ManageMessages/Messages.html')
 
 def Withdraw_project(request,projectid):
     if request.method == 'POST':

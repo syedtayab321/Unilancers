@@ -25,9 +25,6 @@
                     <a class="nav-link active" id="gigs-tab" data-bs-toggle="tab" href="#Gigs" role="tab" aria-controls="Gigs" aria-selected="true">Gigs Samples</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="messages-tab" data-bs-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">Messages</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" id="activeprojectab" data-bs-toggle="tab" href="#activeProjects" role="tab" aria-controls="activeproject" aria-selected="false">ActiveProjects</a>
                 </li>
                 <li class="nav-item">
@@ -46,9 +43,6 @@
                     {% include 'buyer/templates/Components/SellerProfiles.html' %}
                 </div>
                 <!-- Messages -->
-                <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="messages-tab">
-                    {% include 'buyer/templates/Components/message.html' %}
-                </div>
                 <div class="tab-pane fade" id="activeProjects" role="tabpanel" aria-labelledby="activeprojectab">
                     {% include 'buyer/templates/Components/ActiveProjects.html' %}
                 </div>

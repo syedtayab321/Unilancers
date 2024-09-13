@@ -1,3 +1,5 @@
+from django.contrib.auth.models import User
+from django.core.mail import send_mail
 from django.http import HttpResponse
 import requests
 from django.shortcuts import render, redirect,get_object_or_404
@@ -18,7 +20,8 @@ def buyerlogin(request):
                 if user.password == password:
                     request.session["buyeremail"] = user.email
                     request.session["buyerusername"] = user.name
-                    request.session['userid']=user.id
+                    request.session['userid']=user.user_id
+                    request.session['user_role']='buyer'
                     return redirect('buyerdashboard')
                 else:
                     return render(request, 'buyersignup.html', {'error': 'Invalid username or password'})
@@ -34,10 +37,15 @@ def buyersignup(request):
             email = request.POST.get("email")
             password = request.POST.get("password")
             try:
-                user = models.Buyersignup.objects.get(email=email)
+                User.objects.get(email=email)
                 return HttpResponse("User already exists")
             except:
-                user = models.Buyersignup(name=name, email=email, password=password)
+                users = User.objects.create_user(
+                    username=name,  # Use email as username
+                    password=password,
+                    email=email
+                )
+                user = models.Buyersignup(user=users,name=name, email=email, password=password)
                 user.save()
                 return HttpResponse("Data created sucessfully")
         return render(request,'buyersignup.html')
@@ -91,8 +99,21 @@ def logout_view(request):
 
 def RequestApproval(request,id):
     data=sellermodel.ProjectAppliedModal.objects.filter(id=id)
+    userdata=sellermodel.SellerSignUpModal.objects.filter(id=id)
     if data:
         sellermodel.ProjectAppliedModal.objects.filter(id=id).update(status='Approved')
+        # Send an email to notify the user of approval
+        subject = 'Your Project Request Has Been Approved!'
+        message = f"Dear {userdata.username},\n\nYour Request for the  project '{data.project_name}' has been approved. You can now check your dashboard for further details.\n\nBest regards,\nUnilancers Team"
+        recipient_email = userdata.university_email
+
+        send_mail(
+            subject,
+            message,
+            settings.EMAIL_HOST_USER,  # The sender email address from settings
+            [recipient_email],  # The recipient email
+            fail_silently=False,  # Raise an error if the email fails
+        );
         return redirect('buyerdashboard')
     else:
         return HttpResponse('No data found')
