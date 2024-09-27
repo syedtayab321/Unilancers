@@ -25,13 +25,11 @@ SECRET_KEY = 'django-insecure-c!yh$i=by_50+gdy45*8y7k0-u+vp!h%f+bis+#5*^^1&&03jt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:2323",
+    "http://localhost:2323z",
     # other origins
 ]
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -42,15 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'UniSeller',
     'buyer',
-    'channels',
-    'MessageApp',
+    'MessageApp'
 ]
-ASGI_APPLICATION = 'unilancers.asgi.application'
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels.layers.InMemoryChannelLayer',
-    },
-}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -156,21 +147,11 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'unilancerz224@gmail.com'  # Replace with your email
 EMAIL_HOST_PASSWORD ='hsjd ovhd zflb igso' # Replace with your email password
 
-# settings.py
-
-# Set the session engine (database-backed sessions are the default)
+# session settings
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
-
-# Set the age of session cookies, in seconds (default: 1209600 seconds = 2 weeks)
 SESSION_COOKIE_AGE = 1209600
-
-# Whether to use a secure cookie for the session cookie
 SESSION_COOKIE_SECURE = False  # Set to True in production
-
-# Whether the session cookie should be HttpOnly (true by default)
 SESSION_COOKIE_HTTPONLY = True
-
-# Name of the session cookie
 SESSION_COOKIE_NAME = 'sessionid'
 
 

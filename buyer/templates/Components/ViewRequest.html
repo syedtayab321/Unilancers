@@ -6,7 +6,7 @@
         <div class="request-card-body">
           <h5 class="request-card-title">{{ request.project_name }}</h5>
           <p class="request-card-details">
-            <strong>Seller ID:</strong> {{ request.seller_id }}<br>
+             <strong>Seller ID:</strong> {{ request.seller_id }}<br>
             <strong>Price:</strong> ${{ request.project_price }}<br>
             <strong>Tokens:</strong> {{ request.project_tokens }}<br>
             <strong>Date From:</strong> {{ request.Date_from }}<br>
@@ -31,7 +31,8 @@
             <a class="btn btn-success me-2" href="{% url 'payment_view' %}" target="_blank">Approve</a>
             <a class="btn btn-danger" href="{% url 'requestRejection' request.id %}">Reject</a>
                 <a class="btn btn-warning" href="{% url 'viewgigs' request.seller_id %}" target="_blank">View Seller Details</a>
-                <a class="btn btn-success me-2" href="{% url 'chat_room' request.seller_id request.posted_by %}" target="_blank">Chat</a>
+{#                <a class="btn btn-success me-2" href="{% url 'chat_room' request.seller_id request.posted_by %}" target="_blank">Chat</a>#}
+              <a class="btn btn-success me-2" href="{% url 'BuyerMessage' %}" target="_blank">Chat</a>
           </div>
         </div>
       </div>
